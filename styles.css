@@ -1,0 +1,69 @@
+body {
+    font-family: sans-serif;
+    color: white;
+    margin: 0;
+    background-color: #327864;
+}
+
+#login_registration {
+    background-image: url('images/xlogo_bg.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100hv;
+    width: 100%;
+}
+
+
+#startseite {
+    background-image: url('images/xlogo_bg.png');
+    width: 100%;
+    height: 100vh; 
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    text-align: center; 
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px;
+    padding: 5px;
+}
+
+#left, #right  {
+    flex: 1;
+    background-color: transparent;
+    border-radius: 15px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    padding: 20px;
+    border: 1px solid white;
+}
+
+
+input[type="text"], input[type="password"], input[type="email"], input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: none; 
+}
+
+/* Styling für den Submit-Button */
+button[type="submit"] {
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: grey;
+}
