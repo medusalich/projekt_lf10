@@ -2,7 +2,7 @@
 
 ## Firmenname X Logistics
 
-![logo]url('images/xlogo_bg.png')
+![logo]('images/xlogo_bg.png')
 
 Bau einer Webseite, auf der man sich registrieren und einloggen kann. Funktion der Webseite ist die Zeiterfassung und wahlweise zusätzlich auch Buchhaltungsrechnungen. Optional lassen sich Stunden vllt. auch auf Projekte oder bestimmte Aufgaben zur gezielten Abrechnung wie bspw. bei echten Dienstleistern buchen.
 
