@@ -1,22 +1,27 @@
 body {
-    background-color: #f4f4f4;
     font-family: Arial, sans-serif;
     font-size: large;
-    margin: 20px;
+    background-image: url('xlogo_bg.png'); /* Ersetze 'background.jpg' mit dem Namen deines Bildes */
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    background-color: #327864;
 }
 
 .container {
     display: flex;
     justify-content: space-between; /* Abstand zwischen den Fieldsets */
-    margin: 20px;
+    margin: 50px;
 }
 
-.left-fieldset {
-    background-color: #e3ecf3;
-}
-
-.right-fieldset {
-    background-color: #acb4bc;
+.left-fieldset, .right-fieldset  {
+    flex: 1;
+    background-color: transparent;
+    border-radius: 15px;
+    margin: 10px;
 }
 
 label {
@@ -24,7 +29,7 @@ label {
     margin-bottom: 5px;
 }
 
-input[type="text"] {
+input[type="text"], input[type="password"], input[type="email"], input[type="date"]  {
     width: 100%;
     padding: 10px;
     box-sizing: border-box; 
