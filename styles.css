@@ -1,7 +1,7 @@
 body {
     font-family: sans-serif;
     color: white;
-    background-image: url('images/xlogo_bg.png'); /* Ersetze 'background.jpg' mit dem Namen deines Bildes */
+    background-image: url('images/xlogo_bg.png');
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -13,12 +13,12 @@ body {
 
 .container {
     display: flex;
-    justify-content: space-between; /* Abstand zwischen den Fieldsets */
-    margin: 50px;
-    padding: 10px;
+    justify-content: space-between;
+    margin: 30px;
+    padding: 5px;
 }
 
-.left-fieldset, .right-fieldset  {
+#left, #right  {
     flex: 1;
     background-color: transparent;
     border-radius: 15px;
@@ -27,8 +27,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center; 
-    background-color: transparent;
     padding: 20px;
+    border: 1px solid white;
 }
 
 

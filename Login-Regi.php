@@ -11,7 +11,7 @@
 
 <body>
     <div class="container">
-        <fieldset class="left-fieldset">
+        <div id="left">
             <h1>Login</h1><br>
             <form action="login.php" method="POST">
                 <label for="username">Benutzername:</label>
@@ -22,9 +22,9 @@
                 <br><br>
                 <button type="submit">Anmelden</button>
             </form>
-        </fieldset>
+        </div>
 
-        <fieldset class="right-fieldset">
+        <div id="right">
             <h1>Registrierung</h1>
             <form action="register.php" method="POST">
                 <label for="username">Benutzername:</label>
@@ -64,9 +64,10 @@
                 <br><br>
 
                 <button type="submit">Registrieren</button>
-        </fieldset>
+            </form>
+
+        </div>
     </div>
-    </form>
 </body>
 
 </html>
