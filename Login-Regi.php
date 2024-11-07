@@ -24,7 +24,7 @@
         </fieldset>
 
         <fieldset class="right-fieldset">
-            <h2>Registrierung</h2>
+            <h1>Registrierung</h1>
             <form action="register.php" method="POST">
                 <label for="username">Benutzername:</label>
                 <input type="text" id="username" name="username" required>

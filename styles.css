@@ -1,7 +1,7 @@
 body {
-    font-family: Arial, sans-serif;
-    font-size: large;
-    background-image: url('xlogo_bg.png'); /* Ersetze 'background.jpg' mit dem Namen deines Bildes */
+    font-family: sans-serif;
+    color: white;
+    background-image: url('images/xlogo_bg.png'); /* Ersetze 'background.jpg' mit dem Namen deines Bildes */
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -15,6 +15,7 @@ body {
     display: flex;
     justify-content: space-between; /* Abstand zwischen den Fieldsets */
     margin: 50px;
+    padding: 10px;
 }
 
 .left-fieldset, .right-fieldset  {
@@ -22,17 +23,21 @@ body {
     background-color: transparent;
     border-radius: 15px;
     margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    background-color: transparent;
+    padding: 20px;
 }
 
-label {
-    display: block; /* Label nimmt die gesamte Breite ein */
-    margin-bottom: 5px;
-}
 
-input[type="text"], input[type="password"], input[type="email"], input[type="date"]  {
+input[type="text"], input[type="password"], input[type="email"], input[type="date"] {
     width: 100%;
     padding: 10px;
-    box-sizing: border-box; 
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: none; 
 }
 
 /* Styling für den Submit-Button */
