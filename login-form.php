@@ -3,8 +3,12 @@
     session_start();
     require "db.php";
 
+    if (!isset($_SESSION["isLoggedIn"])){
+        $_SESSION["isLoggedIn"] = false;
+    }
+
     if (isset($_SESSION["isLoggedIn"])){
-        if ($_SESSION["isLoggedIn"] == True) {
+        if ($_SESSION["isLoggedIn"] == true) {
             header("Location: dashboard.php");
         }            
     }
@@ -48,8 +52,8 @@
                                 if ($userData['Status'] === 'member') {
                                     echo "Willkommen, " . htmlspecialchars($user) . "!";
 
-                                    if (!isset($_SESSION["isLoggedIn"])){
-                                        $_SESSION["isLoggedIn"] = True;
+                                    if ($_SESSION["isLoggedIn"] == false) {
+                                        $_SESSION["isLoggedIn"] = true;
                                     }
 
                                     header("Location: dashboard.php");
