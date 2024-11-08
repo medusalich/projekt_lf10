@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login und Registration</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 
-<body>
+<body id="login_registration">
     <div class="container">
-        <fieldset class="left-fieldset">
+        <div id="left">
             <h1>Login</h1><br>
             <form action="login.php" method="POST">
                 <label for="username">Benutzername:</label>
@@ -21,10 +22,10 @@
                 <br><br>
                 <button type="submit">Anmelden</button>
             </form>
-        </fieldset>
+        </div>
 
-        <fieldset class="right-fieldset">
-            <h2>Registrierung</h2>
+        <div id="right">
+            <h1>Registrierung</h1>
             <form action="register.php" method="POST">
                 <label for="username">Benutzername:</label>
                 <input type="text" id="username" name="username" required>
@@ -63,9 +64,10 @@
                 <br><br>
 
                 <button type="submit">Registrieren</button>
-        </fieldset>
+            </form>
+
+        </div>
     </div>
-    </form>
 </body>
 
 </html>

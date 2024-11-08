@@ -1,16 +1,17 @@
 <?php
+require 'db.php';
 //Verbindungdsaufbau an die datenbank 
-$host = 'localhost';
+/*$host = 'localhost';
 $dbname = 'projekt';
 $username = 'root';
-$password = '';
+$password = ''; 
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     die("Datenbankverbindung fehlgeschlagen: " . $e->getMessage());
-}
+}*/
 
 // Benutzereingaben aus dem Formular abrufen und validieren
 $user = $_POST['username'];
