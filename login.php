@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 </head>
-require 'db.php';
+
 <body id="startseite">
     
         <?php
