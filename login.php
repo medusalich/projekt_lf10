@@ -8,15 +8,16 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 </head>
-
+require 'db.php';
 <body id="startseite">
     
         <?php
+        require 'db.php';
         //Verbindungdsaufbau an die datenbank 
-        $host = 'localhost';
+       /* $host = 'localhost';
         $dbname = 'projekt';
         $username = 'root';
-        $password = '';
+        $password = ''; 
 
         try {
             $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
@@ -24,6 +25,7 @@
         } catch (PDOException $e) {
             die("Datenbankverbindung fehlgeschlagen: " . $e->getMessage());
         }
+        */
         // SQL datenabruf 
         $user = $_POST['username'];
         $passwort = $_POST['password'];
