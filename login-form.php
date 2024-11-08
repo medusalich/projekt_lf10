@@ -1,5 +1,6 @@
 <?php
     ini_set("session.gc_maxlifetime", 900);
+    ini_set("session.cookie_lifetime", 900);
     session_start();
     require "db.php";
 
