@@ -14,7 +14,7 @@
     // Session isLoggedIn = True überprüfen
 ?>
 
-<body id="login">
+<body class="xlogo">
     <div class="container">
         <div id="left">
             <h1>Registrierung</h1>

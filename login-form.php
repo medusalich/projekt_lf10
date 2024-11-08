@@ -23,7 +23,7 @@
         <link rel="stylesheet" href="css/styles.css">
         <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     </head>
-    <body id="login">
+    <body class="xlogo">
         <div class="container">
             <div id="left">
                 <h1>Login</h1><br>

@@ -26,7 +26,7 @@
         <link rel="stylesheet" href="css/styles.css">
         <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     </head>
-    <body>
+    <body class="xlogo">
         Test Yeah
         <form method="post">
         <button type="submit" name="logout">Logout</button>
