@@ -11,7 +11,7 @@
     if (isset($_SESSION["isLoggedIn"])){
         if ($_SESSION["isLoggedIn"] == true) {
             header("Location: dashboard.php");
-        }            
+        }
     }
 ?>
 
@@ -24,17 +24,15 @@
         <link rel="stylesheet" href="css/styles.css">
         <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     </head>
-    <body class="xlogo">
-        <div class="container">
-            <div id="left">
-                <h1>Login</h1><br>
-                <form action="" method="POST">
+    <body>
+        <main>
+            <div class="xform">
+                <h1>Login</h1>
+                <form method="POST">
                     <label for="username">Benutzername:</label>
                     <input type="text" id="username" name="username" required>
-                    <br><br>
                     <label for="password">Passwort:</label>
                     <input type="password" id="password" name="password" required>
-                    <br><br>
                     <button type="submit">Anmelden</button>
 
                     <?php
@@ -69,9 +67,14 @@
                         }
                     ?>
                 </form>
-                <br>
-                <a href="register-form.php">Registrieren</a>
+                <p>
+                    Noch kein Konto? <a href="register-form.php">Registrieren</a>
+                </p>
             </div>
-        </div>
+
+            <div class="xlogo">
+                <img src="images/xlogo_bg.png">
+            </div>
+        <main>
     </body>
 </html>
