@@ -10,7 +10,3 @@ Bau einer Webseite, auf der man sich registrieren und einloggen kann. Funktion d
 - Login
 - Zeiterfassung
 - Suche nach Arbeitszeiten einzelner Mitarbeiter oder Tagen
-
-</br>
-
-## Ich füg hier mal ne Änderung rein um git zu testen. /mk
