@@ -21,7 +21,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Login X Logistics</title>
-        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/login-styles.css">
         <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     </head>
     <body>

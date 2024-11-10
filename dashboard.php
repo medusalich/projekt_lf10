@@ -35,10 +35,10 @@
         <link rel="stylesheet" href="css/styles.css">
         <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     </head>
-    <body class="xlogo">
-        Test Yeah
+    <body>
+        Du bist eingeloggt.
         <form method="post">
-        <button type="submit" name="logout">Logout</button>
-    </form>
+            <button type="submit" name="logout">Logout</button>
+        </form>
     </body>
 </html>
