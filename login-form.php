@@ -10,7 +10,7 @@
 
     if (isset($_SESSION["isLoggedIn"])){
         if ($_SESSION["isLoggedIn"] == true) {
-            header("Location: dashboard.php");
+            header("Location: dashboard_test.php");
         }
     }
 ?>
@@ -47,15 +47,16 @@
                             $userData = $stmt->fetch(PDO::FETCH_ASSOC);
 
                             if ($userData && password_verify($passwort, $userData['Passwort'])) {
-                                // richtige eingaben
+                                // rich-tige eingaben
                                 if ($userData['Status'] === 'member') {
                                     echo "Willkommen, " . htmlspecialchars($user) . "!";
+                                    $_SESSION['UserID'] = $userData['UserID'];
 
                                     if ($_SESSION["isLoggedIn"] == false) {
                                         $_SESSION["isLoggedIn"] = true;
                                     }
 
-                                    header("Location: dashboard.php");
+                                    header("Location: dashboard_test.php");
                                 } else {
                                     echo "Ihr Konto ist derzeit " . htmlspecialchars($userData['Status']) . ".<br>";
                                     echo "Warten Sie bitte auf die Freischaltung durch einen Administrator.";
