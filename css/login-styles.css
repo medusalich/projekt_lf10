@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    font-size: 20px;
+    color: #173936;
+    background-color: #327864;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    min-width: 800px;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.xform {
+    margin-top: -60px;
+}
+
+.xform p {
+    padding-top: 20px;
+    font-size: 16px;
+}
+
+a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: black;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+}
+
+form label {
+    margin-top: 16px;
+    margin-bottom: 6px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+form input {
+    padding: 6px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    outline: none;
+}
+
+form button {
+    margin-top: 10px;
+    padding: 8px;
+    font-size: 18px;
+    color: black;
+    background-color: #176658;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    color: #327864;
+    background-color: #173936;
+}
+
+.xlogo img {
+    width: 500px;
+    height: 500px;
+    pointer-events: none;
+}

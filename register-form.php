@@ -21,35 +21,68 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Registrierung X Logistics</title>
-        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/regi-styles.css">
         <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     </head>
     <body>
         <main>
             <div class="xform">
                 <h1>Registrierung</h1>
-                <form method="POST">
-                    <label for="username">Benutzername:</label>
-                    <input type="text" id="username" name="username" required>
-                    <label for="vorname">Vorname:</label>
-                    <input type="text" id="vorname" name="vorname" required>
-                    <label for="nachname">Nachname:</label>
-                    <input type="text" id="nachname" name="nachname" required>
-                    <label for="geburtsdatum">Geburtsdatum:</label>
-                    <input type="date" id="geburtsdatum" name="geburtsdatum" required>
-                    <label for="strasse">Straße, Hausnummer:</label>
-                    <input type="text" id="strasse" name="strasse" required>
-                    <label for="postleitzahl">Postleitzahl:</label>
-                    <input type="text" id="postleitzahl" name="postleitzahl" required>
-                    <label for="ort">Ort:</label>
-                    <input type="text" id="ort" name="ort" required>
-                    <label for="email">E-Mail:</label>
-                    <input type="email" id="email" name="email" required>
-                    <label for="password">Passwort:</label>
-                    <input type="password" id="password" name="password" required>
-                    <label for="password">Passwort wiederholen:</label>
-                    <input type="password" id="password_wdhl" name="password_wdhl" required>
-                    <button type="submit">Registrieren</button>
+                <form method="post">
+
+                    <div class="form-element" id="form-user">
+                        <label for="username">Benutzername:</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+
+                    <div class="form-element" id="form-vorname">
+                        <label for="vorname">Vorname:</label>
+                        <input type="text" id="vorname" name="vorname" required>
+                    </div>
+
+                    <div class="form-element" id="form-nachname">
+                        <label for="nachname">Nachname:</label>
+                        <input type="text" id="nachname" name="nachname" required>
+                    </div>
+
+                    <div class="form-element" id="form-geburtstag">
+                        <label for="geburtsdatum">Geburtsdatum:</label>
+                        <input type="date" id="geburtsdatum" name="geburtsdatum" required>
+                    </div>
+
+                    <div class="form-element" id="form-strasse">
+                        <label for="strasse">Straße, Hausnummer:</label>
+                        <input type="text" id="strasse" name="strasse" required>
+                    </div>
+
+                    <div class="form-element" id="form-plz">
+                        <label for="postleitzahl">Postleitzahl:</label>
+                        <input type="text" id="postleitzahl" name="postleitzahl" pattern="\d{5}" maxlength="5" title="Bitte eine 5-stellige Postleitzahl eingeben. Bsp.: 70565" required>
+                    </div>
+
+                    <div class="form-element" id="form-ort">
+                        <label for="ort">Ort:</label>
+                        <input type="text" id="ort" name="ort" required>
+                    </div>
+
+                    <div class="form-element" id="form-email">
+                        <label for="email">E-Mail:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-element" id="form-pw">
+                        <label for="password">Passwort:</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+
+                    <div class="form-element" id="form-pw-wdhl">
+                        <label for="password">Passwort wiederholen:</label>
+                        <input type="password" id="password_wdhl" name="password_wdhl" required>
+                    </div>
+
+                    <div class="form-element" id="form-submit">
+                        <button type="submit">Registrieren</button>
+                    </div>
                     <?php
                         // Benutzereingaben aus dem Formular abrufen und validieren
                         if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -104,14 +137,7 @@
                                 $stmtMitarbeiter->bindParam(':email', $email);
                                 $stmtMitarbeiter->execute();
 
-                                echo "Registrierung erfolgreich! Sie können sich jetzt anmelden.<br>";
-                                echo "Sie werden in 5 Sekunden weitergeleitet";
-                                echo '<script>
-                                        setTimeout(function() {
-                                            window.location.href = "Login-Regi.php";
-                                        }, 0);
-                                    </script>';
-                                    // 5000 Millisekunden = 5 Sekunden                      
+                                header("Location: after-register.php");
                             }
                         }
                     ?>
@@ -123,6 +149,6 @@
             <div class="xlogo">
                 <img src="images/xlogo_bg.png">
             </div>
-        <main>
+        </main>
     </body>
 </html>
