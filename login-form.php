@@ -47,12 +47,20 @@
                         $userData = $stmt->fetch(PDO::FETCH_ASSOC);
                         if ($userData && password_verify($passwort, $userData['Passwort'])) {
                             // Valide eingaben
-                            if ($userData['Status'] === 'member') {
+                            if ($userData['Status'] === 'member' || $userData['Status'] === 'admin') {
                                 $_SESSION['UserID'] = $userData['UserID'];
                                 if ($_SESSION["isLoggedIn"] == false) {
                                     $_SESSION["isLoggedIn"] = true;
                                 }
-                                header("Location: dashboard_test.php");
+
+                                if ($userData['Status'] === 'admin') {
+                                    // Admin Logging in.
+                                    header("Location: dashboard_test.php");
+                                } else {
+                                    // Random User Logging in.
+                                    header("Location: dashboard_test.php");
+                                }
+                                
                             } else {
                                 // User gesperrt
                                 echo '<p class="warning">Ihr Konto ist derzeit ' . htmlspecialchars($userData['Status']) . '!<br>Warte bitte auf die Freischaltung durch einen Administrator.</p>';
