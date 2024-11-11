@@ -57,7 +57,7 @@
 
                     <div class="form-element" id="form-plz">
                         <label for="postleitzahl">Postleitzahl:</label>
-                        <input type="text" id="postleitzahl" name="postleitzahl" pattern="\d{5}" maxlength="5" title="Bitte eine 5-stellige Postleitzahl eingeben. Bsp.: 70565" required>
+                        <input type="text" id="postleitzahl" name="postleitzahl" pattern="\d{5,10}" maxlength="10" title="Bitte eine Postleitzahl eingeben. Bsp.: 70565" required>
                     </div>
 
                     <div class="form-element" id="form-ort">
