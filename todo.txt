@@ -1,0 +1,12 @@
+alle nutzer anzeigen 
+sotieren nach gesperrt
+umbennen von member auf aktiv
+datenbanken zusammenfassen benutzerinfo und login
+bennenung der rechte des admins und normale user
+gehalt (stundenlohn)
+geplante stunde und ist stunden
+eckdaten mitarbeiter für die berechnungen des gehaltes
+funktionen für steuerklassen und berechnung (Tobias Walter)
+stunden anzeigen + logig für die pausen berechnung und automatisch abziehen von gesamt
+
+

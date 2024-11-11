@@ -112,7 +112,7 @@
                                 }
                                 // Passwort verschlüsselung via Hash 
                                 $hashedPassword = password_hash($passwort, PASSWORD_DEFAULT);
-                                $hashedPassword = password_hash($email, PASSWORD_DEFAULT);
+                              
                                 //Userlogin-Tabelle
                                 $sqlUserlogin = "INSERT INTO Userlogin (User, Passwort, Status) VALUES (:user, :passwort, 'gesperrt')";
                                 $stmtUserlogin = $pdo->prepare($sqlUserlogin);
