@@ -146,6 +146,7 @@ form input {
 }
 
 form button {
+    font-weight: bold;
     margin-top: 10px;
     padding: 8px;
     font-size: 18px;
@@ -160,4 +161,18 @@ form button {
 form button:hover {
     color: #327864;
     background-color: #173936;
+}
+
+.warning {
+    max-width: 200px;
+    margin-top: 18px;
+    padding: 8px !important;
+    border-radius: 5px;
+    font-size: 16px !important;
+    font-weight: bold;
+    background-color: #fff;
+    color: #173936;
+    border: 4px;
+    border-style: solid;
+    border-color: red;
 }
