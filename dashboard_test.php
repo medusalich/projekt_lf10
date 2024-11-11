@@ -24,6 +24,27 @@
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['logout'])) {
         logout_action();
     }
+
+     // MitarbeiterID aus der Session holen
+     $MitarbeiterID = $_SESSION['UserID'];
+
+     // Abfrage, die alle Zeiterfassungslogs nach Datum und Dauer für den eingeloggten Mitarbeiter holt
+     $sql = "SELECT DATE(startzeit) AS datum, SEC_TO_TIME(SUM(dauer)) AS gesamtzeit FROM Zeiterfassung WHERE MitarbeiterID = :MitarbeiterID GROUP BY DATE(startzeit) ORDER BY datum DESC";
+     $stmt = $pdo->prepare($sql);
+     $stmt->bindParam(':MitarbeiterID', $MitarbeiterID);
+     $stmt->execute();
+     $logs = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+     //Abfrage um den Namen des Mitarbeiters in die Tabellenüberschrift der Zeilogs zu setzen
+     $sqlName = "SELECT vorname, nachname FROM Mitarbeiter WHERE MitarbeiterID = :MitarbeiterID";
+     $stmtName = $pdo->prepare($sqlName);
+     $stmtName->bindParam(':MitarbeiterID', $MitarbeiterID);
+     $stmtName->execute();
+     $mitarbeiter = $stmtName->fetch(PDO::FETCH_ASSOC);
+     // Variablen für Vor- und Nachnamen setzen mit Fallback
+     $vorname = $mitarbeiter['vorname'] ?? 'Mitarbeiter';
+     $nachname =$mitarbeiter['nachname'] ?? '';
+     
 ?>
 
 <!DOCTYPE html>
@@ -43,6 +64,21 @@
                 font-size: 1em;
                 cursor: pointer;
             }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+            table, th, td {
+                border: 1px solid black;
+            }
+            th, td {
+                padding: 8px;
+                text-align: left;
+            }
+            th {
+                background-color: #f2f2f2;
+            }
     </style>
         <link rel="stylesheet" href="css/styles.css">
         <link rel="icon" href="images/favicon.ico" type="image/x-icon">
@@ -53,6 +89,29 @@
         <button type="submit" name="logout">Logout</button>
         <br><br>
     </form>
+
+    <h2>Zeiterfassungs-Logs für  <?php echo htmlspecialchars($vorname . ' ' . $nachname); ?></h2>
+
+        <!-- Tabelle zur Anzeige der Zeiterfassungsdaten -->
+        <table>
+            <tr>
+                <th>Datum</th>
+                <th>Gesamtzeit (HH:MM:SS)</th>
+            </tr>
+
+            <?php
+            if (!empty($logs)) {
+                foreach ($logs as $log) {
+                    echo "<tr>";
+                    echo "<td>" . htmlspecialchars($log['datum']) . "</td>";
+                    echo "<td>" . htmlspecialchars($log['gesamtzeit']) . "</td>";
+                    echo "</tr>";
+                }
+            } else {
+                echo "<tr><td colspan='2'>Keine Zeiterfassungsdaten verfügbar.</td></tr>";
+            }
+            ?>
+        </table>
     <br><br>
     <br><br>
     <br><br>
@@ -102,6 +161,8 @@
                     }
                 });
         }
+
+        
     </script>
     </body>
 </html>
