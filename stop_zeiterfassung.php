@@ -33,9 +33,9 @@ if ($stmt->rowCount() > 0) {
         $minutes = floor(($seconds % 3600) / 60);
         $seconds = $seconds % 60;
 
-        echo "Die Sitzungsdauer betrug $hours Stunden, $minutes Minuten und $seconds Sekunden. ";
+        echo "Die Arbeitszeit betrug $hours Stunden, $minutes Minuten und $seconds Sekunden. ";
     } else {
-        echo "Die Sitzungsdauer konnte nicht berechnet werden.";
+        echo "Die Arbeitszeit konnte nicht berechnet werden.";
     }
 
 
