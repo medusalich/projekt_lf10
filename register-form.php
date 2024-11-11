@@ -137,7 +137,7 @@
                                 $stmtMitarbeiter->bindParam(':email', $email);
                                 $stmtMitarbeiter->execute();
 
-                                header("Location: after-register.php");
+                                header("Location: after-register.html");
                             }
                         }
                     ?>
