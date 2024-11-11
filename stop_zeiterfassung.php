@@ -13,7 +13,7 @@ $stmt->execute();
 
 if ($stmt->rowCount() > 0) {
     // Endzeit setzen
-    $sqlStop = "UPDATE Zeiterfassung SET endzeit = NOW(), status = 'beendet', dauer = TIME_TO_SEC(TIMEDIFF(NOW(), startzeit)) WHERE MitarbeiterID = :MitarbeiterID AND endzeit IS NULL";
+    $sqlStop = "UPDATE Zeiterfassung SET endzeit = NOW(), status = 'Abgeschlossen', dauer = TIME_TO_SEC(TIMEDIFF(NOW(), startzeit)) WHERE MitarbeiterID = :MitarbeiterID AND endzeit IS NULL";
     $stmtStop = $pdo->prepare($sqlStop);
     $stmtStop->bindParam(':MitarbeiterID', $MitarbeiterID);
     $stmtStop->execute();
