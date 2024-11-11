@@ -1,5 +1,8 @@
 <?php
     require "db.php";
+    // Session Start nach oben verschoben
+    session_start();
+
 
     $sqlMitarbeiter = "SELECT Mitarbeiter.vorname, Mitarbeiter.nachname, Userlogin.Status FROM Mitarbeiter JOIN Userlogin On Mitarbeiter.MitarbeiterID = Userlogin.UserID";
     $stmtMitarbeiter = $pdo->prepare($sqlMitarbeiter);
@@ -10,12 +13,24 @@
             echo "Nachname: " . $row["nachname"] . " Vorname: " . $row["vorname"] . " Status: " . $row["Status"] . "<br>";
         }
     }
+    // Funktion zum Session-Logout und Session-Destroy.
+    function logout_action() {
+        if (isset($_SESSION["isLoggedIn"])){
+            if ($_SESSION["isLoggedIn"] == true) {
+                $_SESSION["isLoggedIn"] = false;
+                session_destroy();
+                header("Location: login-form.php");
+            }
+        } 
+    } 
+    
+     // POST Logout-Abfrage.
+     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['logout'])) {
+        logout_action();
+    }
 ?>
 
 <?php
-require "db.php";
-session_start();
-
 // Wenn eine Statusänderung angefordert wurde
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['user_id']) && isset($_POST['new_status'])) {
     $userId = $_POST['user_id'];
@@ -47,6 +62,15 @@ $stmtMitarbeiter->execute();
     </style>
 </head>
 <body>
+    
+    <!-- Button um vom Admin Board zur Zeiterfassung zu gelangen -->
+    <button onclick="window.location.href='dashboard_test.php'" class="btn">Zeiterfassung</button>
+
+    <!-- Button um sich vom Admin Board auszuloggen -->
+    <form method="post" style="display: inline;">
+    <button type="submit" name="logout" class="btn">Logout</button>
+    </form>
+
     <h1>Mitarbeiterübersicht</h1>
     <table>
         <thead>
