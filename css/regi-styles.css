@@ -16,10 +16,10 @@ body {
 }
 
 main {
-display: flex;
-justify-content: center;
-align-items: center;
-gap: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
 }
 
 h1 {
@@ -175,4 +175,35 @@ form button:hover {
     border: 4px;
     border-style: solid;
     border-color: red;
+}
+
+/*Sehschwäche style*/
+
+.farbenblind {
+    color: black;
+    background-color: white;
+}
+
+.farbenblind a {
+    color: black;
+}
+
+.farbenblind form input {
+    border: 2px solid black;
+}
+
+.farbenblind form button {
+    color: black;
+    background-color: white;
+    border: 2px solid black;
+}
+
+.farbenblind form button:hover {
+    background-color: #ccc;
+}
+
+.farbenblind .warning {
+    background-color: white; 
+    color: black;
+    border-color: orange; 
 }
