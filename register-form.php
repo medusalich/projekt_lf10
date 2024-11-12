@@ -4,6 +4,15 @@
     session_start();
     require "db.php";
 
+    // Überprüfen, ob der farbenfreundliche Modus bereits aktiviert ist oder ob der Benutzer ihn gerade auswählt
+    if (isset($_POST['toggle_mode'])) {
+        $_SESSION['farbenblind_mode'] = !($_SESSION['farbenblind_mode'] ?? false);
+    }
+
+    // Bestimme die Klasse basierend auf dem Modus
+    $modeClass = $_SESSION['farbenblind_mode'] ?? false ? 'normal' : 'farbenblind';
+        
+
     if (!isset($_SESSION["isLoggedIn"])){
         $_SESSION["isLoggedIn"] = false;
     }
@@ -13,6 +22,7 @@
             header("Location: dashboard.php");
         }
     }
+
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +34,7 @@
         <link rel="stylesheet" href="css/regi-styles.css">
         <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     </head>
-    <body>
+    <body class="<?php echo $modeClass; ?>">
         <main>
             <div class="xform">
                 <h1>Registrierung</h1>
@@ -85,7 +95,7 @@
                     </div>
                     <?php
                         // Benutzereingaben aus dem Formular abrufen und validieren
-                        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                        if ($_SERVER["REQUEST_METHOD"] == "POST" && !isset($_POST['toggle_mode'])) {
                             $user = $_POST['username'];
                             $vorname = $_POST['vorname'];
                             $nachname = $_POST['nachname'];
@@ -150,5 +160,13 @@
                 <img src="images/xlogo_bg.png">
             </div>
         </main>
+        <footer>
+            <form method="post" action="">
+                <button type="submit" name="toggle_mode">Farben wechseln</button>
+                    <?php 
+                        echo $_SESSION['farbenblind_mode'] ? 'Normalen Modus aktivieren' : 'Farbenblind-Modus aktivieren'; 
+                    ?>
+            </form>
+        </footer>
     </body>
 </html>
