@@ -11,6 +11,12 @@ $stmt = $pdo->prepare($sql);
 $stmt->bindParam(':MitarbeiterID', $MitarbeiterID);
 $stmt->execute();
 
+// Only set the start time if it has not been set yet
+if (!isset($_SESSION['startzeit'])) {
+    $_SESSION['startzeit'] = date('Y-m-d H:i:s'); // Set start time in session
+    
+} 
+
 if ($stmt->rowCount() > 0) {
     echo "Sie haben bereits eine laufende Zeiterfassung.";
 } else {

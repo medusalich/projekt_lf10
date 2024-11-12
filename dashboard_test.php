@@ -3,6 +3,7 @@
     ini_set("session.cookie_lifetime", 900);
     session_start();
     require "db.php";
+    $startzeit = isset($_SESSION['startzeit']) ? $_SESSION['startzeit'] : null;
 
     // Wenn nicht eingeloggt wird hier direkt zur Login-Seite gesprungen.
     if (!isset($_SESSION["isLoggedIn"]) or $_SESSION["isLoggedIn"] == false){
@@ -122,7 +123,7 @@
     
     <!-- Anzeige der Start- und Endzeit -->
     <div class="time-display">
-        <p>Startzeit: <span id="startzeit">-</span></p>
+        <p>Startzeit: <span id="startzeit"><?php echo $startzeit ? date('d.m.Y H:i:s', strtotime($startzeit)) : '-'; ?></span></p>
         <p>Endzeit: <span id="endzeit">-</span></p>
     </div>
 

@@ -4,6 +4,7 @@ session_start();
 // MitarbeiterID aus der Session
 require "db.php";
 $MitarbeiterID = $_SESSION['UserID']; 
+unset($_SESSION['startzeit']);
 
 // Überprüfen, ob eine aktive Zeiterfassung vorhanden ist
 $sql = "SELECT * FROM Zeiterfassung WHERE MitarbeiterID = :MitarbeiterID AND status = 'aktiv' AND endzeit IS NULL";
