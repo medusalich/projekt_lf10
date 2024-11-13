@@ -118,9 +118,9 @@ if (count($searchResults) > 0) {
                             </tr>
                             <?php foreach ($timeRecords as $record) : ?>
                                 <tr>
-                                    <!-- Originale Zeiten anzeigen -->                                     
-                                    <td><?php echo htmlspecialchars($record['startzeit']); ?></td>
-                                    <td><?php echo htmlspecialchars($record['endzeit']); ?></td>
+                                    <!-- Originale Zeiten anzeigen -->   
+                                    <td><?php echo date("d.m.Y H:i:s", strtotime($record['startzeit'])); ?></td>                                  
+                                    <td><?php echo date("d.m.Y H:i:s", strtotime($record['endzeit'])); ?></td> 
                                     
                                     <!-- Bearbeitbare Felder für neue Start- und Endzeit -->
                                     <!-- Bearbeitbare Felder für neue Start- und Endzeit -->   
