@@ -71,7 +71,7 @@
 
                                     if ($userData['Status'] === 'admin') {
                                         // Admin Logging in.
-                                        header("Location: dashboard_admin.php");
+                                        header("Location: dashboard.php");
                                     } else {
                                         // Random User Logging in.
                                         header("Location: dashboard_test.php");

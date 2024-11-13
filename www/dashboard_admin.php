@@ -63,7 +63,7 @@ $stmtMitarbeiter->execute();
 <body>
     
     <!-- Button um vom Admin Board zur Zeiterfassung zu gelangen -->
-    <button onclick="window.location.href='dashboard_test.php'" class="btn">Zeiterfassung</button>
+    <button onclick="window.location.href='dashboard.php'" class="btn">Zeiterfassung</button>
 
     <!-- Button um sich vom Admin Board auszuloggen -->
     <form method="post" style="display: inline;">
