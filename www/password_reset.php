@@ -54,8 +54,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !isset($_POST['farbwechsel'])) {
 function sendPasswordResetEmail($email, $resetLink) {
     // E-Mail senden
     $to = $email;
-    $subject = "Passwort-zurücksetzen";
-    $message = "Zum Zuzurücksetzen Ihres Passworts klicken Sie bitte auf den folgenden Link: " . $resetLink;
+    $subject = "Passwort zurücksetzen";
+    $message = "Zum zurücksetzen Ihres Passworts klicken Sie bitte auf den folgenden Link:" . $resetLink;
     $headers = "From: support@example.com";
 
     if (mail($to, $subject, $message, $headers)) {
@@ -73,7 +73,7 @@ function sendPasswordResetEmail($email, $resetLink) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <title>Passwort-zurücksetzen</title>
+    <title>Passwort zurücksetzen</title>
 </head>
 
 <body class="<?php echo $modeClass; ?>">
