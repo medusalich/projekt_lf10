@@ -35,3 +35,21 @@ a:hover {
 p {
     margin-bottom: 10px;
 }
+
+table.adminbereich { 
+    width: 100%; 
+    border-collapse: 
+    collapse; 
+}
+        
+th.adminbereich, td.adminbereich { 
+    padding: 10px; 
+    text-align: left; 
+    border-bottom: 1px solid #ddd; 
+}
+        
+.btn { 
+    padding: 5px 10px; 
+    margin: 0 2px; 
+    cursor: pointer; 
+}
