@@ -97,7 +97,7 @@
                         <div class="form-element" id="form-submit">
                             <?php
                                 echo $_SESSION['farbenblind_mode'] ? '<button id="form-button" type="submit">Registrieren</button>' : '<button id="form-button-auge" type="submit">Registrieren</button>';
-                            ?> 
+                            ?>
                         </div>
                         <?php
                             // Benutzereingaben aus dem Formular abrufen und validieren
