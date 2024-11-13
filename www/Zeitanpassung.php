@@ -118,12 +118,12 @@ if (count($searchResults) > 0) {
                             </tr>
                             <?php foreach ($timeRecords as $record) : ?>
                                 <tr>
-                                    <!-- Originale Zeiten anzeigen -->
+                                    <!-- Originale Zeiten anzeigen -->                                     
                                     <td><?php echo htmlspecialchars($record['startzeit']); ?></td>
                                     <td><?php echo htmlspecialchars($record['endzeit']); ?></td>
                                     
                                     <!-- Bearbeitbare Felder für neue Start- und Endzeit -->
-                                    <!-- Bearbeitbare Felder für neue Start- und Endzeit -->
+                                    <!-- Bearbeitbare Felder für neue Start- und Endzeit -->   
                                     <form method="POST">
                                         <td><input type="datetime-local" name="startzeit" value="<?php echo htmlspecialchars(date('Y-m-d\TH:i', strtotime($record['startzeit']))); ?>"></td>
                                         <td><input type="datetime-local" name="endzeit" value="<?php echo htmlspecialchars(date('Y-m-d\TH:i', strtotime($record['endzeit']))); ?>"></td>
