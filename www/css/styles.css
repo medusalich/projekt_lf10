@@ -218,3 +218,10 @@ th {
 .zeitanpassung table {
     width: 100%; /* Optional: Tabelle auf volle Breite setzen */
 }
+
+.message {
+    margin-top: 100px;
+    margin-left: 100px;
+    width: 550px;
+
+}
