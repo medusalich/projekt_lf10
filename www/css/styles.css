@@ -203,3 +203,18 @@ th, td {
 th {
     background-color: white;
 }
+
+.zeitanpassung {
+    display: block;
+    flex-direction: column; /* Elemente untereinander anordnen */
+    align-items: flex-start; /* Elemente links ausrichten */
+    gap: 20px; /* Abstand zwischen den Elementen */
+}
+
+.zeitanpassung form {
+    width: 100%; /* Optional: Formular auf volle Breite setzen */
+}
+
+.zeitanpassung table {
+    width: 100%; /* Optional: Tabelle auf volle Breite setzen */
+}
