@@ -3,6 +3,12 @@
     ini_set("session.cookie_lifetime", 900);
     session_start();
     require "db.php";
+    require "farbenblind_modus.php";
+    
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['farbwechsel'])) {
+        farbwechsel();
+    }
+    $modeClass = farbModus();
 
     // Wenn nicht eingeloggt wird hier direkt zur Login-Seite gesprungen.
     if (!isset($_SESSION["isLoggedIn"]) or $_SESSION["isLoggedIn"] == false){
@@ -56,14 +62,19 @@
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 
-<body>
+<body class="<?php echo $modeClass; ?>">
+    <header>
+        <form method="post">
+            <button id="auge-button" type="submit" name="farbwechsel"></button>
+        </form>
+    </header>
     
     <!-- Button um vom Admin Board zur Zeiterfassung zu gelangen -->
     <button onclick="window.location.href='dashboard.php'">Zeiterfassung</button>
 
     <!-- Button um sich vom Admin Board auszuloggen -->
     <form method="post">
-    <button type="submit" name="logout">Logout</button>
+        <button type="submit" name="logout">Logout</button>
     </form>
 
     <div class="tabelle">
