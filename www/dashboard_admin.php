@@ -59,11 +59,11 @@
 <body>
     
     <!-- Button um vom Admin Board zur Zeiterfassung zu gelangen -->
-    <button onclick="window.location.href='dashboard.php'" class="btn">Zeiterfassung</button>
+    <button class="adminbereich" onclick="window.location.href='dashboard.php'">Zeiterfassung</button>
 
     <!-- Button um sich vom Admin Board auszuloggen -->
     <form method="post" style="display: inline;">
-    <button type="submit" name="logout" class="btn">Logout</button>
+    <button class="adminbereich" type="submit" name="logout">Logout</button>
     </form>
 
     <h1>Mitarbeiterübersicht</h1>
@@ -85,9 +85,9 @@
                     <td class="adminbereich">
                         <form method="post" style="display:inline;">
                             <input type="hidden" name="user_id" value="<?php echo $row['MitarbeiterID']; ?>">
-                            <button class="btn" type="submit" name="new_status" value="Member">Member</button>
-                            <button class="btn" type="submit" name="new_status" value="Admin">Admin</button>
-                            <button class="btn" type="submit" name="new_status" value="Gesperrt">Gesperrt</button>
+                            <button class="adminbereich" type="submit" name="new_status" value="Member">Member</button>
+                            <button class="adminbereich" type="submit" name="new_status" value="Admin">Admin</button>
+                            <button class="adminbereich" type="submit" name="new_status" value="Gesperrt">Gesperrt</button>
                         </form>
                     </td>
                 </tr>
