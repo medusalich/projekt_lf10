@@ -85,7 +85,8 @@ function sendPasswordResetEmail($email, $resetLink) {
 
     <main>
         <div class="xlogo">
-            <h1>Passwort zurücksetzen</h1>
+            <h1>Passwort<br>
+                zurücksetzen</h1>
             <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                 <label for="email">E-Mail-Adresse:</label>
                 <input type="email" name="email" required>
