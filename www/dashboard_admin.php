@@ -79,19 +79,19 @@
             </thead>
             <tbody>
                 <?php while ($row = $stmtMitarbeiter->fetch(PDO::FETCH_ASSOC)): ?>
-                    <tr>
-                        <td><?php echo htmlspecialchars($row["nachname"]); ?></td>
-                        <td><?php echo htmlspecialchars($row["vorname"]); ?></td>
-                        <td><?php echo htmlspecialchars($row["Status"]); ?></td>
-                        <td>
-                            <form method="post">
-                                <input type="hidden" name="user_id" value="<?php echo $row['MitarbeiterID']; ?>">
-                                <button type="submit" name="new_status" value="Member">Member</button>
-                                <button type="submit" name="new_status" value="Admin">Admin</button>
-                                <button type="submit" name="new_status" value="Gesperrt">Gesperrt</button>
-                            </form>
-                        </td>
-                    </tr>
+                <tr>
+                    <td><?php echo htmlspecialchars($row["nachname"]); ?></td>
+                    <td><?php echo htmlspecialchars($row["vorname"]); ?></td>
+                    <td><?php echo htmlspecialchars($row["Status"]); ?></td>
+                    <td>
+                        <form method="post">
+                            <input type="hidden" name="user_id" value="<?php echo $row['MitarbeiterID']; ?>">
+                            <button type="submit" name="new_status" value="Member">Member</button>
+                            <button type="submit" name="new_status" value="Admin">Admin</button>
+                            <button type="submit" name="new_status" value="Gesperrt">Gesperrt</button>
+                        </form>
+                    </td>
+                </tr>
                 <?php endwhile; ?>
             </tbody>
         </table>

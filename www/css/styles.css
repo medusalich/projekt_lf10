@@ -193,6 +193,7 @@ th, td {
     padding: 5px;
     text-align: left;
     border: 1px solid black;
+    width: 25%;
 }
 
 .time-display {
