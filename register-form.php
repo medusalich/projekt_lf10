@@ -4,24 +4,19 @@
     session_start();
     require "db.php";
 
-
+    // Sehschwäche check und Logik
     if (!isset($_SESSION["farbenblind_mode"])){
         $_SESSION["farbenblind_mode"] = false;
     }
-
-    // Überprüfen, ob der farbenfreundliche Modus bereits aktiviert ist oder ob der Benutzer ihn gerade auswählt
     if (isset($_POST["toggle_mode"])) {
         $_SESSION["farbenblind_mode"] = !($_SESSION["farbenblind_mode"] ?? false);
     }
-
-    // Bestimme die Klasse basierend auf dem Modus
     $modeClass = $_SESSION["farbenblind_mode"] ?? false ? "normal" : "farbenblind";
         
-
+    // Login check und ggf Weiterleitung
     if (!isset($_SESSION["isLoggedIn"])){
         $_SESSION["isLoggedIn"] = false;
     }
-
     if (isset($_SESSION["isLoggedIn"])){
         if ($_SESSION["isLoggedIn"] == true) {
             header("Location: dashboard.php");
@@ -40,7 +35,7 @@
     </head>
     <body class="<?php echo $modeClass; ?>">
         <header>
-            <form method="post" action="">
+            <form method="post">
                 <button id="auge-button" type="submit" name="toggle_mode"></button>
             </form>
         </header>
@@ -49,7 +44,6 @@
                 <div class="xform">
                     <h1>Registrierung</h1>
                     <form method="post">
-
                         <div class="form-element" id="form-user">
                             <label for="username">Benutzername:</label>
                             <input type="text" id="username" name="username" required>
@@ -169,7 +163,7 @@
                     </p>
                 </div>
                 <div class="xlogo">
-                    <?php 
+                    <?php
                         echo $_SESSION['farbenblind_mode'] ? '<img src="images/xlogo_bg.png">' : '<img src="images/xlogo_bg_auge.png">'; 
                     ?>
                 </div>
