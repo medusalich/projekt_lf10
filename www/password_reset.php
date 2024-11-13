@@ -56,7 +56,7 @@ function sendPasswordResetEmail($email, $resetLink) {
     $to = $email;
     $subject = "Passwort zurücksetzen";
     $message = "Zum zurücksetzen Ihres Passworts klicken Sie bitte auf den folgenden Link:" . $resetLink;
-    $headers = "From: support@example.com";
+    $headers = "From: support@xlogistics.com";
 
     if (mail($to, $subject, $message, $headers)) {
         echo "Passwort-zurücksetzen-E-Mail wurde gesendet an " . $email . ".\n";
