@@ -95,7 +95,10 @@
                 <?php endwhile; ?>
             </tbody>
         </table>
-    </div>    
+    </div>
+    <p>
+     <a href="zeitanpassung.php">zeitanpassen</a>
+    </p>    
 </body>
 </html>
 
