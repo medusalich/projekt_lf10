@@ -3,15 +3,12 @@
     ini_set("session.cookie_lifetime", 900);
     session_start();
     require "db.php";
-
-    // Sehschwäche check und Logik
-    if (!isset($_SESSION["farbenblind_mode"])){
-        $_SESSION["farbenblind_mode"] = false;
+    require "farbenblind_modus.php";
+    
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['farbwechsel'])) {
+        farbwechsel();
     }
-    if (isset($_POST["toggle_mode"])) {
-        $_SESSION["farbenblind_mode"] = !($_SESSION["farbenblind_mode"] ?? false);
-    }
-    $modeClass = $_SESSION["farbenblind_mode"] ?? false ? "normal" : "farbenblind";
+    $modeClass = farbModus();
         
     // Login check und ggf Weiterleitung
     if (!isset($_SESSION["isLoggedIn"])){
@@ -36,7 +33,7 @@
     <body class="<?php echo $modeClass; ?>">
         <header>
             <form method="post">
-                <button id="auge-button" type="submit" name="toggle_mode"></button>
+                <button id="auge-button" type="submit" name="farbwechsel"></button>
             </form>
         </header>
         <div class="main-content">
@@ -95,13 +92,11 @@
                         </div>
 
                         <div class="form-element" id="form-submit">
-                            <?php
-                                echo $_SESSION['farbenblind_mode'] ? '<button id="form-button" type="submit">Registrieren</button>' : '<button id="form-button-auge" type="submit">Registrieren</button>';
-                            ?>
+                            <button id="form-button" type="submit">Registrieren</button>
                         </div>
                         <?php
                             // Benutzereingaben aus dem Formular abrufen und validieren
-                            if ($_SERVER["REQUEST_METHOD"] == "POST" && !isset($_POST['toggle_mode'])) {
+                            if ($_SERVER["REQUEST_METHOD"] == "POST" && !isset($_POST['farbwechsel'])) {
                                 $user = $_POST['username'];
                                 $vorname = $_POST['vorname'];
                                 $nachname = $_POST['nachname'];
@@ -164,8 +159,8 @@
                 </div>
                 <div class="xlogo">
                     <?php
-                        echo $_SESSION['farbenblind_mode'] ? '<img src="images/xlogo_bg.png">' : '<img src="images/xlogo_bg_auge.png">'; 
-                    ?>
+                        echo $_SESSION['farbenblind_modus'] ? '<img src="images/xlogo_bg_auge.png">' : '<img src="images/xlogo_bg.png">'; 
+                    ?>                    
                 </div>
             </main>
         </div>

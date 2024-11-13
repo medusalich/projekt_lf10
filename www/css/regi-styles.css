@@ -213,7 +213,7 @@ form #form-button:hover {
     border: 2px solid black;
 }
 
-.farbenblind #form-button-auge {
+.farbenblind #form-button {
     font-weight: bold;
     margin-top: 10px;
     padding: 8px;
@@ -226,7 +226,7 @@ form #form-button:hover {
     transition: background-color 0.3s;
 }
 
-.farbenblind #form-button-auge:hover {
+.farbenblind #form-button:hover {
     background-color: #ccc;
 }
 
