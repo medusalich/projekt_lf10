@@ -8,11 +8,54 @@ body {
     font-size: 20px;
     color: #173936;
     background-color: #327864;
+    min-height: 100vh;
+    min-width: 800px;
+}
+
+header {
+    width: 200px;
+    height: 100px;
+    float: right;
+}
+
+header #auge-button {
+    margin-top: 20px;
+    background-color: transparent;
+    background-image: url("../images/auge.png");
+    height: 60px;
+    width: 82px;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+}
+
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
 }
 
 h1 {
     font-size: 40px;
     margin-bottom: 10px;
+}
+
+.xform {
+    margin-top: -60px;
+}
+
+.xform p {
+    padding-top: 20px;
+    font-size: 16px;
 }
 
 a {
@@ -26,61 +69,132 @@ a:hover {
     color: black;
 }
 
-.message {
-    margin-top: 100px;
-    margin-left: 100px;
-    width: 600px;
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
 }
 
-p {
-    margin-bottom: 10px;
+form label {
+    margin-top: 16px;
+    margin-bottom: 6px;
+    font-size: 18px;
+    font-weight: bold;
 }
 
-/* Tabellenstyle Adminbereich*/
-table.adminbereich { 
+form input {
+    padding: 6px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    outline: none;
+}
+
+form button, button {
+    font-weight: bold;
+    margin-top: 10px;
+    padding: 8px;
+    font-size: 18px;
+    color: black;
+    background-color: #176658;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    color: #327864;
+    background-color: #173936;
+}
+
+.xlogo img {
+    width: 500px;
+    height: 500px;
+    pointer-events: none;
+}
+
+.warning {
+    max-width: 200px;
+    margin-top: 18px;
+    padding: 8px !important;
+    border-radius: 5px;
+    font-size: 16px !important;
+    font-weight: bold;
+    background-color: #fff;
+    color: #173936;
+    border: 4px;
+    border-style: solid;
+    border-color: red;
+}
+
+/*Sehschwäche style*/
+
+.farbenblind {
+    color: black;
+    background-color: white;
+}
+
+.farbenblind a {
+    color: black;
+}
+
+.farbenblind form input {
+    border: 2px solid black;
+}
+
+.farbenblind #form-button-auge {
+    font-weight: bold;
+    margin-top: 10px;
+    padding: 8px;
+    font-size: 18px;
+    color: black;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.farbenblind #form-button-auge:hover {
+    background-color: #ccc;
+}
+
+.farbenblind .warning {
+    background-color: white; 
+    color: black;
+    border-color: orange; 
+}
+
+/* Tabellenstyle*/
+.tabelle {
+    display: block;
+    justify-content: center;
+}
+
+table form {
+    display: inline;
+}
+
+table { 
     width: 100%; 
-    border-collapse: 
-    collapse; 
-}
-        
-th.adminbereich, td.adminbereich { 
-    padding: 10px; 
-    text-align: left; 
-    border-bottom: 1px solid #ddd; 
-}
-        
-button.adminbereich { 
-    padding: 5px 10px; 
-    margin: 0 2px; 
-    cursor: pointer; 
+    max-width: 1200px; 
+    border-collapse: collapse; 
+    border: 1px solid black;
+    margin-top: 20px; 
 }
 
-/* Tabellenstyle Mitarbeiterbereich*/
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid black;
+}
+
 .time-display {
     font-size: 1.2em;
     margin-top: 10px;
 }
 
-button.mitarbeiterbereich {
-    padding: 10px 20px;
-    margin: 5px;
-    font-size: 1em;
-    cursor: pointer;
-}
-
-table.mitarbeiterbereich {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    border: 1px solid black;
-}
-
-th.mitarbeiterbereich, td {
-    padding: 8px;
-    text-align: left;
-    border: 1px solid black;
-}
-
-th.mitarbeiterbereich {
-    background-color: #f2f2f2;
+th {
+    background-color: white;
 }

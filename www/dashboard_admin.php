@@ -59,41 +59,43 @@
 <body>
     
     <!-- Button um vom Admin Board zur Zeiterfassung zu gelangen -->
-    <button class="adminbereich" onclick="window.location.href='dashboard.php'">Zeiterfassung</button>
+    <button onclick="window.location.href='dashboard.php'">Zeiterfassung</button>
 
     <!-- Button um sich vom Admin Board auszuloggen -->
-    <form method="post" style="display: inline;">
-    <button class="adminbereich" type="submit" name="logout">Logout</button>
+    <form method="post">
+    <button type="submit" name="logout">Logout</button>
     </form>
 
-    <h1>Mitarbeiterübersicht</h1>
-    <table class="adminbereich">
-        <thead>
-            <tr>
-                <th class="adminbereich">Nachname</th>
-                <th class="adminbereich">Vorname</th>
-                <th class="adminbereich">Status</th>
-                <th class="adminbereich">Aktionen</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php while ($row = $stmtMitarbeiter->fetch(PDO::FETCH_ASSOC)): ?>
+    <div class="tabelle">
+        <h1>Mitarbeiterübersicht</h1>
+        <table>
+            <thead>
                 <tr>
-                    <td class="adminbereich"><?php echo htmlspecialchars($row["nachname"]); ?></td>
-                    <td class="adminbereich"><?php echo htmlspecialchars($row["vorname"]); ?></td>
-                    <td class="adminbereich"><?php echo htmlspecialchars($row["Status"]); ?></td>
-                    <td class="adminbereich">
-                        <form method="post" style="display:inline;">
-                            <input type="hidden" name="user_id" value="<?php echo $row['MitarbeiterID']; ?>">
-                            <button class="adminbereich" type="submit" name="new_status" value="Member">Member</button>
-                            <button class="adminbereich" type="submit" name="new_status" value="Admin">Admin</button>
-                            <button class="adminbereich" type="submit" name="new_status" value="Gesperrt">Gesperrt</button>
-                        </form>
-                    </td>
+                    <th>Nachname</th>
+                    <th>Vorname</th>
+                    <th>Status</th>
+                    <th>Aktionen</th>
                 </tr>
-            <?php endwhile; ?>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <?php while ($row = $stmtMitarbeiter->fetch(PDO::FETCH_ASSOC)): ?>
+                    <tr>
+                        <td><?php echo htmlspecialchars($row["nachname"]); ?></td>
+                        <td><?php echo htmlspecialchars($row["vorname"]); ?></td>
+                        <td><?php echo htmlspecialchars($row["Status"]); ?></td>
+                        <td>
+                            <form method="post">
+                                <input type="hidden" name="user_id" value="<?php echo $row['MitarbeiterID']; ?>">
+                                <button type="submit" name="new_status" value="Member">Member</button>
+                                <button type="submit" name="new_status" value="Admin">Admin</button>
+                                <button type="submit" name="new_status" value="Gesperrt">Gesperrt</button>
+                            </form>
+                        </td>
+                    </tr>
+                <?php endwhile; ?>
+            </tbody>
+        </table>
+    </div>    
 </body>
 </html>
 

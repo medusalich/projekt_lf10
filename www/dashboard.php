@@ -79,16 +79,16 @@
     </div>
 
     <!-- Buttons zum Starten und Stoppen der Zeiterfassung -->
-    <button class="mitarbeiterbereich" onclick="startZeiterfassung()">Zeiterfassung starten</button>
-    <button class="mitarbeiterbereich" onclick="stopZeiterfassung()">Zeiterfassung stoppen</button>
+    <button onclick="startZeiterfassung()">Zeiterfassung starten</button>
+    <button onclick="stopZeiterfassung()">Zeiterfassung stoppen</button>
 
     <h2>Zeiterfassungs-Logs für <?php echo htmlspecialchars($vorname . ' ' . $nachname); ?></h2>
 
     <!-- Tabelle zur Anzeige der Zeiterfassungsdaten -->
-    <table class="mitarbeiterbereich">
+    <table>
         <tr>
-            <th class="mitarbeiterbereich">Datum</th>
-            <th class="mitarbeiterbereich">Gesamtzeit (HH:MM:SS)</th>
+            <th>Datum</th>
+            <th>Gesamtzeit (HH:MM:SS)</th>
         </tr>
 
         <?php
