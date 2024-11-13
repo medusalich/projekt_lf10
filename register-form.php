@@ -4,13 +4,18 @@
     session_start();
     require "db.php";
 
+
+    if (!isset($_SESSION["farbenblind_mode"])){
+        $_SESSION["farbenblind_mode"] = false;
+    }
+
     // Überprüfen, ob der farbenfreundliche Modus bereits aktiviert ist oder ob der Benutzer ihn gerade auswählt
-    if (isset($_POST['toggle_mode'])) {
-        $_SESSION['farbenblind_mode'] = !($_SESSION['farbenblind_mode'] ?? false);
+    if (isset($_POST["toggle_mode"])) {
+        $_SESSION["farbenblind_mode"] = !($_SESSION["farbenblind_mode"] ?? false);
     }
 
     // Bestimme die Klasse basierend auf dem Modus
-    $modeClass = $_SESSION['farbenblind_mode'] ?? false ? 'normal' : 'farbenblind';
+    $modeClass = $_SESSION["farbenblind_mode"] ?? false ? "normal" : "farbenblind";
         
 
     if (!isset($_SESSION["isLoggedIn"])){
