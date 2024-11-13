@@ -84,12 +84,14 @@ function sendPasswordResetEmail($email, $resetLink) {
     </header>
 
     <main>
-        <h1>Passwort-zurücksetzen</h1>
-        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-            <label for="email">E-Mail-Adresse:</label>
-            <input type="email" name="email" required>
-            <button type="passwort" name="submit" value="Passwort zuzurücksetzen">Passwort zurücksetzen</button>
-        </form>
+        <div class="xlogo">
+            <h1>Passwort zurücksetzen</h1>
+            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                <label for="email">E-Mail-Adresse:</label>
+                <input type="email" name="email" required>
+                <button type="passwort" name="submit" value="Passwort zuzurücksetzen">Passwort zurücksetzen</button>
+            </form>
+        </div>
         <div class="xlogo">
             <?php
                 echo $_SESSION['farbenblind_modus'] ? '<img src="images/xlogo_bg_auge.png">' : '<img src="images/xlogo_bg.png">'; 
