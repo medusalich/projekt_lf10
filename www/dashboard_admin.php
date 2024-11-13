@@ -109,7 +109,12 @@
     </div>
     <p>
      <a href="zeitanpassung.php">zeitanpassen</a>
-    </p>    
+    </p> 
+    <div class="xlogo">
+        <?php
+            echo $_SESSION['farbenblind_modus'] ? '<img src="images/xlogo_bg_auge.png">' : '<img src="images/xlogo_bg.png">'; 
+        ?>                    
+    </div>   
 </body>
 </html>
 
