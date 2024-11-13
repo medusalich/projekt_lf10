@@ -170,10 +170,14 @@ form button:hover {
 .tabelle {
     display: block;
     justify-content: center;
+    margin-left: 10px;
 }
 
 table form {
     display: inline;
+    justify-content: center;
+    gap: 10px;
+    margin: 0;
 }
 
 table { 
@@ -181,11 +185,12 @@ table {
     max-width: 1200px; 
     border-collapse: collapse; 
     border: 1px solid black;
-    margin-top: 20px; 
+    margin-top: 20px;
+    color: black;
 }
 
 th, td {
-    padding: 10px;
+    padding: 5px;
     text-align: left;
     border: 1px solid black;
 }
