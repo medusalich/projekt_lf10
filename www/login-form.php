@@ -3,16 +3,13 @@
     ini_set("session.cookie_lifetime", 900);
     session_start();
     require "db.php";
-
-    // Sehschwäche check und Logik
-    if (!isset($_SESSION["farbenblind_mode"])){
-        $_SESSION["farbenblind_mode"] = false;
+    require "farbenblind_modus.php";
+    
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['farbwechsel'])) {
+        farbwechsel();
     }
-    if (isset($_POST["toggle_mode"])) {
-        $_SESSION["farbenblind_mode"] = !($_SESSION["farbenblind_mode"] ?? false);
-    }
-    $modeClass = $_SESSION["farbenblind_mode"] ?? false ? "normal" : "farbenblind";
-        
+    $modeClass = farbModus();
+    
     // Login check und ggf Weiterleitung
     if (!isset($_SESSION["isLoggedIn"])){
         $_SESSION["isLoggedIn"] = false;
@@ -34,11 +31,11 @@
     </head>
     <body class="<?php echo $modeClass; ?>">
         <header>
-                <form method="post">
-                    <button id="auge-button" type="submit" name="toggle_mode"></button>
-                </form>
-            </header>
-            <div class="main-content">
+            <form method="post">
+                <button id="auge-button" type="submit" name="farbwechsel"></button>
+            </form>
+        </header>
+        <div class="main-content">
             <main>
                 <div class="xform">
                     <h1>Login</h1>
@@ -47,13 +44,11 @@
                         <input type="text" id="username" name="username" required>
                         <label for="password">Passwort:</label>
                         <input type="password" id="password" name="password" required>
-                        <?php
-                            echo $_SESSION['farbenblind_mode'] ? '<button id="form-button" type="submit">Anmelden</button>' : '<button id="form-button-auge" type="submit">Anmelden</button>';
-                        ?>
+                        <button id="form-button" type="submit">Anmelden</button>
                     </form>
                     <?php
                         // SQL datenabruf
-                        if ($_SERVER["REQUEST_METHOD"] == "POST" && !isset($_POST['toggle_mode'])) {
+                        if ($_SERVER["REQUEST_METHOD"] == "POST" && !isset($_POST['farbwechsel'])) {
                             $user = $_POST['username'];
                             $passwort = $_POST['password'];
                             $sql = "SELECT * FROM Userlogin WHERE User = :user";
@@ -93,7 +88,7 @@
                 </div>
                 <div class="xlogo">
                     <?php
-                            echo $_SESSION['farbenblind_mode'] ? '<img src="images/xlogo_bg.png">' : '<img src="images/xlogo_bg_auge.png">'; 
+                            echo $_SESSION['farbenblind_modus'] ?  '<img src="images/xlogo_bg_auge.png">' : '<img src="images/xlogo_bg.png">'; 
                         ?>
                 </div>
             <main>
