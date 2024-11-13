@@ -135,8 +135,8 @@
                                     $userID = $pdo->lastInsertId();
 
                                     //Mitarbeiter-Tabelle
-                                    $sqlMitarbeiter = "INSERT INTO Mitarbeiter (MitarbeiterID, Vorname, Nachname, Straße, Postleitzahl, Ort, Geburtsdatum, Email)
-                                                        VALUES (:MitarbeiterID, :vorname, :nachname, :strasse, :postleitzahl, :ort, :geburtsdatum, :email)";
+                                    $sqlMitarbeiter = "INSERT INTO Mitarbeiter (MitarbeiterID, Vorname, Nachname, Straße, Postleitzahl, Ort, Geburtsdatum, Email, Datum)
+                                                        VALUES (:MitarbeiterID, :vorname, :nachname, :strasse, :postleitzahl, :ort, :geburtsdatum, :email, :datum)";
                                     $stmtMitarbeiter = $pdo->prepare($sqlMitarbeiter);
                                     $stmtMitarbeiter->bindParam(':MitarbeiterID', $userID);
                                     $stmtMitarbeiter->bindParam(':vorname', $vorname);
@@ -146,6 +146,7 @@
                                     $stmtMitarbeiter->bindParam(':ort', $ort);
                                     $stmtMitarbeiter->bindParam(':geburtsdatum', $geburtsdatum);
                                     $stmtMitarbeiter->bindParam(':email', $email);
+                                    $stmtMitarbeiter->bindParam(':datum', date("d.m.Y H:i:s"));
                                     $stmtMitarbeiter->execute();
 
                                     header("Location: after-register.html");
