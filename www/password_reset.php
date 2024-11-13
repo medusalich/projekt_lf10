@@ -49,8 +49,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 function sendPasswordResetEmail($email, $resetLink) {
     // E-Mail senden
     $to = $email;
-    $subject = "Passwort-zurücksetzen";
-    $message = "Zum Zuzurücksetzen Ihres Passworts klicken Sie bitte auf den folgenden Link: " . $resetLink;
+    $subject = "Passwort zurücksetzen";
+    $message = "Zum zurücksetzen Ihres Passworts klicken Sie bitte auf den folgenden Link:" . $resetLink;
     $headers = "From: support@example.com";
 
     if (mail($to, $subject, $message, $headers)) {
@@ -68,13 +68,13 @@ function sendPasswordResetEmail($email, $resetLink) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <title>Passwort-zurücksetzen</title>
+    <title>Passwort zurücksetzen</title>
 </head>
 <body>
-    <h1>Passwort-zurücksetzen</h1>
+    <h1>Passwort zurücksetzen</h1>
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
         E-Mail-Adresse: <input type="email" name="email"><br><br>
-        <input type="submit" name="submit" value="Passwort zuzurücksetzen">
+        <input type="submit" name="submit" value="Passwort zurücksetzen">
     </form>
 </body>
 </html>

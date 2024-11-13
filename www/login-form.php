@@ -83,7 +83,7 @@
                         }
                     ?>
                     <p>
-                        Noch kein Konto? <a href="register-form.php">Registrieren</a>
+                        Noch kein Konto? <a href="register-form.php">Registrieren</a> </br>
                         Passwort vergessen? <a href="password_reset.php">Zurücksetzen</a>
                     </p>
                 </div>
