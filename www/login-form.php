@@ -84,6 +84,7 @@
                     ?>
                     <p>
                         Noch kein Konto? <a href="register-form.php">Registrieren</a>
+                        Passwort vergessen? <a href="password_reset.php">Zurücksetzen</a>
                     </p>
                 </div>
                 <div class="xlogo">
