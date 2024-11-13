@@ -90,7 +90,7 @@ form input {
     outline: none;
 }
 
-form button {
+button {
     font-weight: bold;
     margin-top: 10px;
     padding: 8px;
@@ -103,7 +103,7 @@ form button {
     transition: background-color 0.3s;
 }
 
-form button:hover {
+button:hover {
     color: #327864;
     background-color: #173936;
 }
@@ -127,8 +127,6 @@ form button:hover {
     border-style: solid;
     border-color: red;
 }
-
-/*Sehschwäche style*/
 
 .farbenblind {
     color: black;
