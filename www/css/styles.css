@@ -36,6 +36,7 @@ p {
     margin-bottom: 10px;
 }
 
+/* Tabellenstyle Adminbereich*/
 table.adminbereich { 
     width: 100%; 
     border-collapse: 
@@ -48,8 +49,38 @@ th.adminbereich, td.adminbereich {
     border-bottom: 1px solid #ddd; 
 }
         
-.btn { 
+button.adminbereich { 
     padding: 5px 10px; 
     margin: 0 2px; 
     cursor: pointer; 
+}
+
+/* Tabellenstyle Mitarbeiterbereich*/
+.time-display {
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+button.mitarbeiterbereich {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+table.mitarbeiterbereich {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border: 1px solid black;
+}
+
+th.mitarbeiterbereich, td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid black;
+}
+
+th.mitarbeiterbereich {
+    background-color: #f2f2f2;
 }
