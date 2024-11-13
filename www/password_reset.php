@@ -7,13 +7,18 @@ ini_set("SMTP", "localhost");       // SMTP-Server (z. B. localhost)
 ini_set("smtp_port", "1025");  
 // Datenbankverbindung herstellen
 require "db.php";
-
+require "farbenblind_modus.php";
+    
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['farbwechsel'])) {
+    farbwechsel();
+}
+$modeClass = farbModus();
 
 // Tabelle für Nutzer-Anmeldedaten
 $table_name = "Mitarbeiter";
 
 // Formular verarbeiten, wenn es abgeschickt wurde
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && !isset($_POST['farbwechsel'])) {
     $email = $_POST["email"];
 
     // Überprüfen, ob der Nutzer existiert
@@ -64,17 +69,32 @@ function sendPasswordResetEmail($email, $resetLink) {
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <title>Passwort-zurücksetzen</title>
 </head>
-<body>
-    <h1>Passwort-zurücksetzen</h1>
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-        E-Mail-Adresse: <input type="email" name="email"><br><br>
-        <input type="submit" name="submit" value="Passwort zuzurücksetzen">
-    </form>
+
+<body class="<?php echo $modeClass; ?>">
+    <header>
+        <form method="post">
+            <button id="auge-button" type="submit" name="farbwechsel"></button>
+        </form>
+    </header>
+
+    <main>
+        <h1>Passwort-zurücksetzen</h1>
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+            <label for="email">E-Mail-Adresse:</label>
+            <input type="email" name="email" required>
+            <button type="passwort" name="submit" value="Passwort zuzurücksetzen">Passwort zurücksetzen</button>
+        </form>
+        <div class="xlogo">
+            <?php
+                echo $_SESSION['farbenblind_modus'] ? '<img src="images/xlogo_bg_auge.png">' : '<img src="images/xlogo_bg.png">'; 
+            ?>                    
+        </div>
+    </main>
 </body>
 </html>
