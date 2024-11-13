@@ -3,6 +3,13 @@
     ini_set("session.cookie_lifetime", 900);
     session_start();
     require "db.php";
+    require "farbenblind_modus.php";
+    
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['farbwechsel'])) {
+        farbwechsel();
+    }
+    $modeClass = farbModus();
+
     $startzeit = isset($_SESSION['startzeit']) ? $_SESSION['startzeit'] : null;
 
     // Wenn nicht eingeloggt wird hier direkt zur Login-Seite gesprungen.
@@ -60,11 +67,15 @@
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 
-<body class="xlogo">
-    Test Yeah
+<body class="<?php echo $modeClass; ?>">
+    <header>
+        <form method="post">
+            <button id="auge-button" type="submit" name="farbwechsel"></button>
+        </form>
+    </header>
+
     <form method="post">
         <button type="submit" name="logout">Logout</button>
-        <br><br>
     </form>
 
     <h1>Zeiterfassung</h1>
@@ -137,6 +148,11 @@
                 });
         }
     </script>
+    <div class="xlogo">
+        <?php
+            echo $_SESSION['farbenblind_modus'] ? '<img src="images/xlogo_bg_auge.png">' : '<img src="images/xlogo_bg.png">'; 
+        ?>                    
+    </div>
 </body>
 
 </html>
