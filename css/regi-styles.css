@@ -8,11 +8,32 @@ body {
     font-size: 20px;
     color: #173936;
     background-color: #327864;
+    min-height: 100vh;
+    min-width: 800px;
+}
+
+header {
+    width: 200px;
+    height: 100px;
+    float: right;
+}
+
+header #auge-button {
+    margin-top: 20px;
+    background-color: transparent;
+    background-image: url("../images/auge.png");
+    height: 60px;
+    width: 82px;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+}
+
+.main-content {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    min-width: 800px;
 }
 
 main {
@@ -145,7 +166,7 @@ form input {
     outline: none;
 }
 
-form button {
+form #form-button {
     font-weight: bold;
     margin-top: 10px;
     padding: 8px;
@@ -158,7 +179,7 @@ form button {
     transition: background-color 0.3s;
 }
 
-form button:hover {
+form #form-button:hover {
     color: #327864;
     background-color: #173936;
 }
@@ -192,13 +213,20 @@ form button:hover {
     border: 2px solid black;
 }
 
-.farbenblind form button {
+.farbenblind #form-button-auge {
+    font-weight: bold;
+    margin-top: 10px;
+    padding: 8px;
+    font-size: 18px;
     color: black;
     background-color: white;
     border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-.farbenblind form button:hover {
+.farbenblind #form-button-auge:hover {
     background-color: #ccc;
 }
 
