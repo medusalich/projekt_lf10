@@ -82,7 +82,7 @@
         <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     </head>
     <body class="<?php echo $modeClass; ?>">  
-                <header>
+        <header>
             <nav class="nav-box">
                 <button onclick="window.location.href='lohnabrechnung.php'">Abrechnungen</button>
                 <form method="post">

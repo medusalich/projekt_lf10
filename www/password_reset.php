@@ -67,38 +67,38 @@ function sendPasswordResetEmail($email, $resetLink) {
 ?>
 
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <title>Passwort zurücksetzen</title>
-</head>
-
-<body class="<?php echo $modeClass; ?>">
-    <header>
-        <button onclick="window.location.href='login-form.php'">Zurück zum Login</button>
-        <form method="post">
-            <button id="auge-button" type="submit" name="farbwechsel"></button>
-        </form>
-    </header>
-
-    <main>
-        <div class="xlogo">
-            <h1>Link<br>
-                anfordern</h1>
-            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-                <label for="email">E-Mail-Adresse:</label>
-                <input type="email" name="email" required>
-                <button type="passwort" name="submit" value="Passwort zuzurücksetzen">Passwort zurücksetzen</button>
-            </form>
-        </div>
-        <div class="xlogo">
-            <?php
-                echo $_SESSION['farbenblind_modus'] ? '<img src="images/xlogo_bg_auge.png">' : '<img src="images/xlogo_bg.png">'; 
-            ?>                    
-        </div>
-    </main>
-</body>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+        <title>Passwort zurücksetzen</title>
+    </head>
+    <body class="<?php echo $modeClass; ?>">
+        <header>
+            <nav class="nav-box">
+                <button onclick="window.location.href='login-form.php'">Zurück zum Login</button>
+                <form method="post">
+                    <button id="auge-button" type="submit" name="farbwechsel"></button>
+                </form>
+            </nav>
+        </header>
+        <main>
+            <div class="xlogo">
+                <h1>Link<br>
+                    anfordern</h1>
+                <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                    <label for="email">E-Mail-Adresse:</label>
+                    <input type="email" name="email" required>
+                    <button type="passwort" name="submit" value="Passwort zuzurücksetzen">Passwort zurücksetzen</button>
+                </form>
+            </div>
+            <div class="xlogo">
+                <?php
+                    echo $_SESSION['farbenblind_modus'] ? '<img src="images/xlogo_bg_auge.png">' : '<img src="images/xlogo_bg.png">'; 
+                ?>                    
+            </div>
+        </main>
+    </body>
 </html>

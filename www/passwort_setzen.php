@@ -14,7 +14,7 @@ $modeClass = farbModus();
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="de">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,12 +24,13 @@ $modeClass = farbModus();
     </head>
     <body class="<?php echo $modeClass; ?>">
         <header>
-            <button onclick="window.location.href='login-form.php'">Zurück zum Login</button>
-            <form method="post">
-                <button id="auge-button" type="submit" name="farbwechsel"></button>
-            </form>
+            <nav class="nav-box">
+                <button onclick="window.location.href='login-form.php'">Zurück zum Login</button>
+                <form method="post">
+                    <button id="auge-button" type="submit" name="farbwechsel"></button>
+                </form>
+            </nav>
         </header>
-
         <main>
             <?php
             // Überprüfen, ob ein gültiger Token übergeben wurde
@@ -86,6 +87,5 @@ $modeClass = farbModus();
                 ?>                    
             </div>
         </main>
-
     </body>
 </html>
