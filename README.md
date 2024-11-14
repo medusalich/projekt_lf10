@@ -57,7 +57,7 @@ Quelltext Editor für diverse Programmiersprachen um die Codes für unsere Webse
 MailHog
 erzeugt einen Fake SMTP Server über den lokal Emails verschickt werden können um bspw. Funktionalitäten wie Passwort Resetting zu testen (https://github.com/mailhog/MailHog/releases/tag/v1.0.1)
 
-1. Projektübersicht
+## Projektübersicht
 Projektziel:
 Errichtung einer Webseite zur Zeiterfassung für Mitarbeiter. Anforderungen sind die Kontoerstellung, anschließende Login-Funktion, Einsicht der bisherigen Arbeitszeiten-Logs und die Möglichkeit, seine Gehaltsabrechnung im Blick zu haben. Zusätzlich gibt es einen getrennten Bereich für Mitarbeiter und Admins, bei dem Letzere Funktionen zur Mitarbeiterverwaltung verfügbar gemacht werden.
 
@@ -83,9 +83,9 @@ SQL: Datenbankstruktur Backend
 CSS: Stylesheet zur Layoutgestaltung
 JavaScript: Script für Funktion der Zeiterfassung
 
-2. Systemarchitektur
-2.1 Frontend
-2.1.1 Benutzeroberfläche
+## 2. Systemarchitektur
+## 2.1 Frontend
+## 2.1.1 Benutzeroberfläche
 Die Benutzeroberfläche ist seitenübergreifend klar und minimalistisch strukturiert, da für die angestrebten Funktionen auf Übersichtlichkeit gesetzt wird.
 
 
@@ -106,9 +106,9 @@ Die Zeiterfassung wird über klickbare Buttons gestartet und gestoppt. Dabei wir
 
 ![Hier folgen die weiteren Unterseiten sobald fertig]!
 
-2.1.2 CSS Struktur und Design
-2.2 Backend
-3. Implementierungsdetails
+## 2.1.2 CSS Struktur und Design
+## 2.2 Backend
+## 3. Implementierungsdetails
 3.1 Datenbank
 Mitarbeiter Tabelle mit zusätzlichen Angaben zu Abteilungen, Einstellungsdatum und Positionen:
 CREATE TABLE Userlogin (
@@ -140,7 +140,7 @@ CREATE TABLE Zeiterfassung (
     status ENUM('aktiv', 'abgeschlossen') NOT NULL DEFAULT 'aktiv',
     FOREIGN KEY (MitarbeiterID) REFERENCES Mitarbeiter(MitarbeiterID) ON DELETE CASCADE
 );
-3.2 Funktionalitäten
+# 3.2 Funktionalitäten
 Die wichtigsten Funktionen des Projekts umfassen:
 
 Benutzerverwaltung: Registrierung, Anmeldung und Profilverwaltung.
@@ -155,7 +155,7 @@ Passwortverschlüsselung: Passwörter werden sicher verschlüsselt gespeichert.
 Sichere Authentifizierung: Token-basierte Passwort-Reset-Funktion und zeitlich begrenzte Links.
 Session-Management: Automatische Abmeldung bei Inaktivität und sichere Handhabung von Sessions.
 Datenbank-Sicherheit: Vorbereitete Statements zur Vermeidung von SQL-Injections.
-4. Installation und Deployment
+## 4. Installation und Deployment
 Installationsanleitung
 
 Repository klonen: Klone das Projekt auf den Server oder lokalen Entwicklungsrechner:
@@ -174,7 +174,7 @@ Webserver konfigurieren: Stelle sicher, dass der Webserver für die korrekte Aus
 
 Anwendung starten: Rufe die URL des Projekts im Browser auf, um sicherzustellen, dass die Anwendung ordnungsgemäß ausgeführt wird.
 
-5.1 Systemvoraussetzungen
+## 5 Systemvoraussetzungen
 Serveranforderungen:
 
 PHP 7.0 oder höher
@@ -184,7 +184,7 @@ Mindestens 1GB RAM und 500MB Speicherplatz (empfohlen)
 Clientanforderungen:
 
 Moderner Webbrowser (Chrome, Firefox, Edge, Safari)
-5.1 Mailhog
+# 5.1 Mailhog
 Download der aktuellen Version für das eigene System (bspw. Windows) unter (https://github.com/mailhog/MailHog/releases/tag/v1.0.1)!
 
 Ausführen der heruntergeladenen .EXE Datei
@@ -197,5 +197,5 @@ Anpassung des PHP-Ports für Emailverkehr wird in der jeweiligen Datei auf den F
 
 Ist alles richtig eingerichtet erreichen den Server nun Mails vom Support 
 
-6. Fazit
-Das Abschlussprojekt LF10a ermöglichte es, einen Unternehmensprozess digital abzubilden und förderte sowohl technische als auch organisatorische Fähigkeiten. Die Entwicklung einer Webanwendung mit PHP, SQL, HTML und CSS bot praxisnahe Erfahrung in der Teamarbeit, während tägliche Präsentationen und Protokolle die Zusammenarbeit unterstützten. Die Anwendungsdokumentation rundet das Projekt ab und bereiteten die Teilnehmer auf reale Aufgaben in der Webentwicklung vor
+## 6. Fazit
+Das Abschlussprojekt LF10a ermöglichte es, einen Unternehmensprozess digital abzubilden und förderte sowohl technische als auch organisatorische Fähigkeiten. Die Entwicklung einer Webanwendung mit PHP, SQL, HTML und CSS bot praxisnahe Erfahrung in der Teamarbeit, während tägliche Präsentationen und Protokolle die Zusammenarbeit unterstützten. Die Anwendungsdokumentation rundet das Projekt ab und bereiteten die Teilnehmer auf reale Aufgaben in der Webentwicklung vor.
