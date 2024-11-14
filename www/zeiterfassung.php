@@ -62,12 +62,14 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Dashboard X Logistics</title>
+        <title>Zeiterfassung X Logistics</title>
         <link rel="stylesheet" href="css/styles.css">
         <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     </head>
     <body class="<?php echo $modeClass; ?>">
+    
         <header>
+            
             <button onclick="window.location.href='lohnabrechnung.php'">Abrechnungen</button>
             <form method="post">
                 <button type="submit" name="logout">Logout</button>
@@ -76,12 +78,15 @@
                 <button id="auge-button" type="submit" name="farbwechsel"></button>
             </form>
         </header>
+        
         <div class="dashboard-main">
+
             <div class="xlogo">
-                <?php
-                    echo $_SESSION['farbenblind_modus'] ? '<img src="images/xlogo_bg_auge.png">' : '<img src="images/xlogo_bg.png">'; 
-                ?>
+                    <?php
+                        echo $_SESSION['farbenblind_modus'] ? '<img src="images/xlogo_bg_auge.png">' : '<img src="images/xlogo_bg.png">'; 
+                    ?>
             </div>
+            
 
             <h1>Zeiterfassung</h1>
 

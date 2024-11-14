@@ -54,6 +54,7 @@
 
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -64,20 +65,25 @@
 
 <body class="<?php echo $modeClass; ?>">
     <header>
+        <button onclick="window.location.href='lohnabrechnung.php'">Abrechnungen</button>
+        <button onclick="window.location.href='zeiterfassung.php'">Zeiterfassung</button>
+        <button onclick="window.location.href='zeitanpassung.php'">Zeitanpassung</button>
+
+        <form method="post">
+            <button type="submit" name="logout">Logout</button>
+        </form>
         <form method="post">
             <button id="auge-button" type="submit" name="farbwechsel"></button>
         </form>
     </header>
-    
-    <!-- Button um vom Admin Board zur Zeiterfassung zu gelangen -->
-    <button onclick="window.location.href='dashboard.php'">Zeiterfassung</button>
-
-    <!-- Button um sich vom Admin Board auszuloggen -->
-    <form method="post">
-        <button type="submit" name="logout">Logout</button>
-    </form>
 
     <div class="tabelle">
+        <div class="xlogo">
+            <?php
+                echo $_SESSION['farbenblind_modus'] ? '<img src="images/xlogo_bg_auge.png">' : '<img src="images/xlogo_bg.png">'; 
+            ?>                    
+        </div> 
+
         <h1>Mitarbeiterübersicht</h1>
         <table>
             <thead>
@@ -107,14 +113,7 @@
             </tbody>
         </table>
     </div>
-    <p>
-     <a href="zeitanpassung.php">zeitanpassen</a>
-    </p> 
-    <div class="xlogo">
-        <?php
-            echo $_SESSION['farbenblind_modus'] ? '<img src="images/xlogo_bg_auge.png">' : '<img src="images/xlogo_bg.png">'; 
-        ?>                    
-    </div>   
+      
 </body>
 </html>
 

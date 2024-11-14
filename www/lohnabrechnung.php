@@ -57,7 +57,7 @@
     </head>
     <body class="<?php echo $modeClass; ?>">
         <header>
-            <button onclick="window.location.href='dashboard.php'">Zeiterfassung</button>
+            <button onclick="window.location.href='zeiterfassung.php'">Zeiterfassung</button>
             <form method="post">
                 <button type="submit" name="logout">Logout</button>
             </form>

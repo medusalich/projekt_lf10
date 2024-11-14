@@ -47,7 +47,7 @@ if (count($searchResults) > 0) {
 ?>
 <!DOCTYPE html>
 <html lang="de">
-<html>
+
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,15 +55,28 @@ if (count($searchResults) > 0) {
         <link rel="stylesheet" href="css/styles.css">
         <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     </head>
+
     <body class="<?php echo $modeClass; ?>">
+        
         <header>
+            
+            <button onclick="window.location.href='lohnabrechnung.php'">Abrechnungen</button>
+            <button onclick="window.location.href='zeiterfassung.php'">Zeiterfassung</button>
+            <button onclick="window.location.href='dashboard_admin.php'">Dashboard</button>
             <form method="post">
                 <button id="auge-button" type="submit" name="farbwechsel"></button>
             </form>
         </header>
+        <div class="xlogo">
+                <?php
+                    echo $_SESSION['farbenblind_modus'] ? '<img src="images/xlogo_bg_auge.png">' : '<img src="images/xlogo_bg.png">'; 
+                ?>                    
+        </div>
 
         <main>
+            
             <div class="zeitanpassung">
+                
                 <h1>Mitarbeiter suchen</h1>
                 
                 <!-- Suchformular -->
@@ -108,6 +121,7 @@ if (count($searchResults) > 0) {
                     ?>
                     
                     <?php if (count($timeRecords) > 0) : ?>
+                        
                         <table>
                             <tr>
                                 <th>Original Startzeit</th>
@@ -135,17 +149,12 @@ if (count($searchResults) > 0) {
                                 </tr>
                             <?php endforeach; ?>
                         </table>
+                        
                     <?php else : ?>
                         <p>Keine Arbeitszeiten gefunden.</p>
                     <?php endif; ?>
                 <?php endif; ?>
             </div>
-
-            <div class="xlogo">
-                <?php
-                    echo $_SESSION['farbenblind_modus'] ? '<img src="images/xlogo_bg_auge.png">' : '<img src="images/xlogo_bg.png">'; 
-                ?>                    
-            </div>
-        <main>
-</body>
+        </main>
+    </body>
 </html>

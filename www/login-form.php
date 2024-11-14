@@ -16,7 +16,7 @@
     }
     if (isset($_SESSION["isLoggedIn"])){
         if ($_SESSION["isLoggedIn"] == true) {
-            header("Location: dashboard.php");
+            header("Location: zeiterfassung.php");
         }
     }
 ?>
