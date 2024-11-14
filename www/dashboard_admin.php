@@ -88,19 +88,19 @@
         <table>
             <thead>
                 <tr>
-                    <th>Nachname</th>
-                    <th>Vorname</th>
-                    <th>Status</th>
-                    <th>Aktionen</th>
+                    <th style="width: 20%;">Nachname</th>
+                    <th style="width: 20%;">Vorname</th>
+                    <th style="width: 20%;">Status</th>
+                    <th style="width: 40%;">Aktionen</th>
                 </tr>
             </thead>
             <tbody>
                 <?php while ($row = $stmtMitarbeiter->fetch(PDO::FETCH_ASSOC)): ?>
                 <tr>
-                    <td><?php echo htmlspecialchars($row["nachname"]); ?></td>
-                    <td><?php echo htmlspecialchars($row["vorname"]); ?></td>
-                    <td><?php echo htmlspecialchars($row["Status"]); ?></td>
-                    <td>
+                    <td style="width: 20%;"><?php echo htmlspecialchars($row["nachname"]); ?></td>
+                    <td style="width: 20%;"><?php echo htmlspecialchars($row["vorname"]); ?></td>
+                    <td style="width: 20%;"><?php echo htmlspecialchars($row["Status"]); ?></td>
+                    <td style="width: 40%;">
                         <form method="post">
                             <input type="hidden" name="user_id" value="<?php echo $row['MitarbeiterID']; ?>">
                             <button type="submit" name="new_status" value="Member">Member</button>
