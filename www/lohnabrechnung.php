@@ -8,6 +8,16 @@
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['farbwechsel'])) {
         farbwechsel();
     }
+    
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['farbwechsel'])) {
+        // Umschalten des Farbmodus
+        if (isset($_SESSION['farbenblind_modus']) && $_SESSION['farbenblind_modus'] == true) {
+            $_SESSION['farbenblind_modus'] = false;
+        } else {
+            $_SESSION['farbenblind_modus'] = true;
+        }
+    }
+
     $modeClass = farbModus();
 
     $MitarbeiterID = $_SESSION['UserID'];

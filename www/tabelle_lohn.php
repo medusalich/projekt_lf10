@@ -9,6 +9,7 @@
         farbwechsel();
     }
     $modeClass = farbModus();
+    $modeClass = isset($_SESSION['farbenblind_modus']) && $_SESSION['farbenblind_modus'] ? 'farbenblind' : 'normal';
 
     $startzeit = isset($_SESSION['startzeit']) ? $_SESSION['startzeit'] : null;
     $endzeit = isset($_SESSION['endzeit']) ? $_SESSION['endzeit'] : null; ////////////////////////
