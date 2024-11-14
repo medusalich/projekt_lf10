@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !isset($_POST['farbwechsel'])) {
         $resetLink = "http://localhost/projekt_lf10/www/passwort_setzen.php?token=" . $resetToken;
         sendPasswordResetEmail($email, $resetLink);
 
-        echo "Eine Passwort-zurücksetzen-E-Mail wurde an Ihre Adresse gesendet.";
+        header("Location: after-resetmail.php");
     } else {
         echo "Kein Nutzer mit der E-Mail-Adresse " . $email . " gefunden.";
     }

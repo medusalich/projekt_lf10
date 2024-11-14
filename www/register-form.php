@@ -149,7 +149,7 @@
                                     $stmtMitarbeiter->bindParam(':datum', date("d.m.Y H:i:s"));
                                     $stmtMitarbeiter->execute();
 
-                                    header("Location: after-register.html");
+                                    header("Location: after-register.php");
                                 }
                             }
                         ?>
