@@ -54,67 +54,65 @@
 
 <!DOCTYPE html>
 <html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Adminbereich X Logistics</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adminbereich X Logistics</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-</head>
+    <body class="<?php echo $modeClass; ?>">
+        <header>
+            <button onclick="window.location.href='lohnabrechnung.php'">Abrechnungen</button>
+            <button onclick="window.location.href='zeiterfassung.php'">Zeiterfassung</button>
+            <button onclick="window.location.href='zeitanpassung.php'">Zeitanpassung</button>
 
-<body class="<?php echo $modeClass; ?>">
-    <header>
-        <button onclick="window.location.href='lohnabrechnung.php'">Abrechnungen</button>
-        <button onclick="window.location.href='zeiterfassung.php'">Zeiterfassung</button>
-        <button onclick="window.location.href='zeitanpassung.php'">Zeitanpassung</button>
+            <form method="post">
+                <button type="submit" name="logout">Logout</button>
+            </form>
+            <form method="post">
+                <button id="auge-button" type="submit" name="farbwechsel"></button>
+            </form>
+        </header>
+        <div class="tabelle">
+            <div class="xlogo">
+                <?php
+                    echo $_SESSION['farbenblind_modus'] ? '<img src="images/xlogo_bg_auge.png">' : '<img src="images/xlogo_bg.png">'; 
+                ?>                    
+            </div>
 
-        <form method="post">
-            <button type="submit" name="logout">Logout</button>
-        </form>
-        <form method="post">
-            <button id="auge-button" type="submit" name="farbwechsel"></button>
-        </form>
-    </header>
-
-    <div class="tabelle">
-        <div class="xlogo">
-            <?php
-                echo $_SESSION['farbenblind_modus'] ? '<img src="images/xlogo_bg_auge.png">' : '<img src="images/xlogo_bg.png">'; 
-            ?>                    
-        </div> 
-
-        <h1>Mitarbeiterübersicht</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th style="width: 20%;">Nachname</th>
-                    <th style="width: 20%;">Vorname</th>
-                    <th style="width: 20%;">Status</th>
-                    <th style="width: 40%;">Aktionen</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php while ($row = $stmtMitarbeiter->fetch(PDO::FETCH_ASSOC)): ?>
-                <tr>
-                    <td style="width: 20%;"><?php echo htmlspecialchars($row["nachname"]); ?></td>
-                    <td style="width: 20%;"><?php echo htmlspecialchars($row["vorname"]); ?></td>
-                    <td style="width: 20%;"><?php echo htmlspecialchars($row["Status"]); ?></td>
-                    <td style="width: 40%;">
-                        <form method="post">
-                            <input type="hidden" name="user_id" value="<?php echo $row['MitarbeiterID']; ?>">
-                            <button type="submit" name="new_status" value="Member">Member</button>
-                            <button type="submit" name="new_status" value="Admin">Admin</button>
-                            <button type="submit" name="new_status" value="Gesperrt">Gesperrt</button>
-                        </form>
-                    </td>
-                </tr>
-                <?php endwhile; ?>
-            </tbody>
-        </table>
-    </div>
-      
-</body>
+            <h1>Mitarbeiterübersicht</h1>
+            <table style="width: 1025px;">
+                <thead>
+                    <tr>
+                        <th style="width: 200px;">Nachname</th>
+                        <th style="width: 200px;">Vorname</th>
+                        <th style="width: 200px;">Status</th>
+                        <th style="width: 425px;">Aktionen</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php while ($row = $stmtMitarbeiter->fetch(PDO::FETCH_ASSOC)): ?>
+                    <tr>
+                        <td style="width: 200px;"><?php echo htmlspecialchars($row["nachname"]); ?></td>
+                        <td style="width: 200px;"><?php echo htmlspecialchars($row["vorname"]); ?></td>
+                        <td style="width: 200px;"><?php echo htmlspecialchars($row["Status"]); ?></td>
+                        <td style="width: 425px;">
+                            <form method="post">
+                                <input type="hidden" name="user_id" value="<?php echo $row['MitarbeiterID']; ?>">
+                                <button type="submit" name="new_status" value="Member">Member</button>
+                                <button type="submit" name="new_status" value="Admin">Admin</button>
+                                <button type="submit" name="new_status" value="Gesperrt">Gesperrt</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <?php endwhile; ?>
+                </tbody>
+            </table>
+        </div>
+        
+    </body>
 </html>
 
 
