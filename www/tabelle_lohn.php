@@ -78,9 +78,8 @@
      Wenn ja: Tabelle aufbauen, sonst fehlermeldung-->
 <?php if ($month_exists) : ?>
 <!DOCTYPE html>
-<html>
+<html lang="de">
     <head>
-        <link rel="stylesheet" href="css/styles.css">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Lohntabelle X Logistics</title>
@@ -104,12 +103,16 @@
     </head>
     <body class="<?php echo $modeClass; ?>">
         <header>
-            <button onclick="window.location.href='zeiterfassung.php'">Zeiterfassung</button>
-            <button onclick="window.location.href='lohnabrechnung.php'">Abrechnungen</button>
-            <form method="post">
-                <button type="submit" name="logout">Logout</button>
-            </form>
-            
+            <nav class="nav-box">
+                <button onclick="window.location.href='zeiterfassung.php'">Zeiterfassung</button>
+                <button onclick="window.location.href='lohnabrechnung.php'">Abrechnungen</button>
+                <form method="post">
+                    <button type="submit" name="logout">Logout</button>
+                </form>
+                <form method="post">
+                    <button id="auge-button" type="submit" name="farbwechsel"></button>
+                </form>
+            </nav> 
         </header>
         <div class="dashboard-main">
             <div class="xlogo">

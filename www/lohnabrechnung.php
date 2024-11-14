@@ -47,7 +47,7 @@
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="de">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -57,13 +57,15 @@
     </head>
     <body class="<?php echo $modeClass; ?>">
         <header>
-            <button onclick="window.location.href='zeiterfassung.php'">Zeiterfassung</button>
-            <form method="post">
-                <button type="submit" name="logout">Logout</button>
-            </form>
-            <form method="post">
-                <button id="auge-button" type="submit" name="farbwechsel"></button>
-            </form>
+            <nav class="nav-box">
+                <button onclick="window.location.href='zeiterfassung.php'">Zeiterfassung</button>
+                <form method="post">
+                    <button type="submit" name="logout">Logout</button>
+                </form>
+                <form method="post">
+                    <button id="auge-button" type="submit" name="farbwechsel"></button>
+                </form>
+            </nav>
         </header>
         <div class="dashboard-main">
             <div class="xlogo">
@@ -71,8 +73,6 @@
                     echo $_SESSION['farbenblind_modus'] ? '<img src="images/xlogo_bg_auge.png">' : '<img src="images/xlogo_bg.png">'; 
                 ?>
             </div>
-
-
 
             <h2>Auswahl Lohnabrechnung</h2>
             <p>Bitte Jahr und Monat auswählen:</p>
@@ -88,20 +88,20 @@
                 </select>
 
                 <label for="month">Monat:</label>
-                <select id="month" name="month">
-                    <option value="01">Januar</option>
-                    <option value="02">Februar</option>
-                    <option value="03">März</option>
-                    <option value="04">April</option>
-                    <option value="05">Mai</option>
-                    <option value="06">Juni</option>
-                    <option value="07">Juli</option>
-                    <option value="08">August</option>
-                    <option value="09">September</option>
-                    <option value="10">Oktober</option>
-                    <option value="11">November</option>
-                    <option value="12">Dezember</option>
-                </select>
+                    <select id="month" name="month">
+                        <option value="01">Januar</option>
+                        <option value="02">Februar</option>
+                        <option value="03">März</option>
+                        <option value="04">April</option>
+                        <option value="05">Mai</option>
+                        <option value="06">Juni</option>
+                        <option value="07">Juli</option>
+                        <option value="08">August</option>
+                        <option value="09">September</option>
+                        <option value="10">Oktober</option>
+                        <option value="11">November</option>
+                        <option value="12">Dezember</option>
+                    </select>
                 <button type="submit">Aufrufen</button>
             </form>            
         </div>
