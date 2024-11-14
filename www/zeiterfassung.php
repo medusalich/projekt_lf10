@@ -10,7 +10,23 @@
     }
     $modeClass = farbModus();
 
-    $startzeit = isset($_SESSION['startzeit']) ? $_SESSION['startzeit'] : null;
+
+    // Startzeit aus Sitzung oder Datenbank abrufen, wenn keine Session festgelegt ist
+    if (!isset($_SESSION['startzeit'])) {
+        $MitarbeiterID = $_SESSION['UserID'];
+        $sqlStart = "SELECT startzeit FROM Zeiterfassung WHERE MitarbeiterID = :MitarbeiterID AND status = 'aktiv' AND endzeit IS NULL ORDER BY startzeit DESC LIMIT 1";
+        $stmtStart = $pdo->prepare($sqlStart);
+        $stmtStart->bindParam(':MitarbeiterID', $MitarbeiterID);
+        $stmtStart->execute();
+        $result = $stmtStart->fetch(PDO::FETCH_ASSOC);
+        $startzeit = $result ? $result['startzeit'] : null;
+        // Wenn Startzeit gefunden, in der Session speichern für schnelleren Zugriff
+        if ($startzeit) {
+            $_SESSION['startzeit'] = $startzeit;
+        }
+    } else {
+        $startzeit = $_SESSION['startzeit'];
+    }
 
     // Wenn nicht eingeloggt wird hier direkt zur Login-Seite gesprungen.
     if (!isset($_SESSION["isLoggedIn"]) or $_SESSION["isLoggedIn"] == false) {

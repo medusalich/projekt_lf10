@@ -11,7 +11,7 @@ $stmt = $pdo->prepare($sql);
 $stmt->bindParam(':MitarbeiterID', $MitarbeiterID);
 $stmt->execute();
 
-// Only set the start time if it has not been set yet
+// Stellen Sie die Startzeit nur ein, wenn sie noch nicht eingestellt wurde
 if (!isset($_SESSION['startzeit'])) {
     $_SESSION['startzeit'] = date('Y-m-d H:i:s'); // Set start time in session
     
