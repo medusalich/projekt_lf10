@@ -35,6 +35,10 @@ nav {
     justify-content: flex-end;
 }
 
+.nav-box button {
+    margin-right: 10px;
+}
+
 .main-content {
     display: flex;
     justify-content: center;
@@ -109,7 +113,6 @@ button {
     font-weight: bold;
     margin-top: 10px;
     margin-bottom: 10px;
-    margin-right: 20px;
     padding: 8px;
     font-size: 18px;
     color: black;
@@ -231,15 +234,11 @@ th {
 }
 
 .zeitanpassung {
-    display: block;
+    display: flex;
     flex-direction: column; /* Elemente untereinander anordnen */
     align-items: flex-start; /* Elemente links ausrichten */
-    gap: 20px; /* Abstand zwischen den Elementen */
 }
 
-.zeitanpassung form {
-    width: 100%; /* Optional: Formular auf volle Breite setzen */
-}
 
 .zeitanpassung table {
     width: 100%; /* Optional: Tabelle auf volle Breite setzen */

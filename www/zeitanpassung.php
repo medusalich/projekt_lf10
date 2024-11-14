@@ -47,7 +47,6 @@ if (count($searchResults) > 0) {
 ?>
 <!DOCTYPE html>
 <html lang="de">
-
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,28 +54,23 @@ if (count($searchResults) > 0) {
         <link rel="stylesheet" href="css/styles.css">
         <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     </head>
-
-    <body class="<?php echo $modeClass; ?>">
-        
+    <body class="<?php echo $modeClass; ?>">       
         <header>
-            
-            <button onclick="window.location.href='lohnabrechnung.php'">Abrechnungen</button>
-            <button onclick="window.location.href='zeiterfassung.php'">Zeiterfassung</button>
-            <button onclick="window.location.href='dashboard_admin.php'">Dashboard</button>
-            <form method="post">
-                <button id="auge-button" type="submit" name="farbwechsel"></button>
-            </form>
+            <nav class="nav-box">
+                <button onclick="window.location.href='lohnabrechnung.php'">Abrechnungen</button>
+                <button onclick="window.location.href='zeiterfassung.php'">Zeiterfassung</button>
+                <button onclick="window.location.href='dashboard_admin.php'">Dashboard</button>
+                <form method="post">
+                    <button id="auge-button" type="submit" name="farbwechsel"></button>
+                </form>
+            </nav>
         </header>
-        <div class="xlogo">
+        <div class="dashboard-main">
+            <div class="xlogo">
                 <?php
                     echo $_SESSION['farbenblind_modus'] ? '<img src="images/xlogo_bg_auge.png">' : '<img src="images/xlogo_bg.png">'; 
                 ?>                    
-        </div>
-
-        <main>
-            
-            <div class="zeitanpassung">
-                
+            </div>               
                 <h1>Mitarbeiter suchen</h1>
                 
                 <!-- Suchformular -->
@@ -160,7 +154,7 @@ if (count($searchResults) > 0) {
                     <?php endif; ?>
                 <?php endif; ?>
             </div>
-        </main>
+        </div>
     </body>
 </html>
 <?php

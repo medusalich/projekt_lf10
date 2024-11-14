@@ -64,7 +64,7 @@
 
     <body class="<?php echo $modeClass; ?>">
         <header>
-            <nav>
+            <nav class="nav-box">
                 <button onclick="window.location.href='lohnabrechnung.php'">Abrechnungen</button>
                 <button onclick="window.location.href='zeiterfassung.php'">Zeiterfassung</button>
                 <button onclick="window.location.href='zeitanpassung.php'">Zeitanpassung</button>

@@ -32,7 +32,7 @@
     </head>
     <body class="<?php echo $modeClass; ?>">
         <header>
-            <nav>
+            <nav class="nav-box">
                 <form method="post">
                     <button id="auge-button" type="submit" name="farbwechsel"></button>
                 </form>

@@ -32,7 +32,7 @@ nav {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: flex-end !important;
+    justify-content: flex-end;
 }
 
 nav form {
@@ -40,6 +40,10 @@ nav form {
     flex-direction: column;
     max-width: 300px;
     width: unset;
+}
+
+.nav-box button {
+    margin-right: 10px;
 }
 
 .main-content {

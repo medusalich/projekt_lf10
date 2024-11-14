@@ -35,6 +35,10 @@ nav {
     justify-content: flex-end;
 }
 
+.nav-box button{
+    margin-right: 10px;
+}
+
 .main-content {
     display: flex;
     justify-content: center;
