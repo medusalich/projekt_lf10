@@ -11,6 +11,7 @@
     $modeClass = farbModus();
 
     $startzeit = isset($_SESSION['startzeit']) ? $_SESSION['startzeit'] : null;
+    $endzeit = isset($_SESSION['endzeit']) ? $_SESSION['endzeit'] : null; ////////////////////////
 
     // Wenn nicht eingeloggt wird hier direkt zur Login-Seite gesprungen.
     if (!isset($_SESSION["isLoggedIn"]) or $_SESSION["isLoggedIn"] == false) {
@@ -53,106 +54,106 @@
     // Variablen für Vor- und Nachnamen setzen mit Fallback
     $vorname = $mitarbeiter['vorname'] ?? 'Mitarbeiter';
     $nachname = $mitarbeiter['nachname'] ?? '';
-
 ?>
 
 <!DOCTYPE html>
 <html lang="de">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard X Logistics</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dashboard X Logistics</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    </head>
+    <body class="<?php echo $modeClass; ?>">
+        <header>
+            <button onclick="window.location.href='lohnabrechnung.php'">Abrechnungen</button>
+            <form method="post">
+                <button type="submit" name="logout">Logout</button>
+            </form>
+            <form method="post">
+                <button id="auge-button" type="submit" name="farbwechsel"></button>
+            </form>
+        </header>
+        <div class="dashboard-main">
+            <div class="xlogo">
+                <?php
+                    echo $_SESSION['farbenblind_modus'] ? '<img src="images/xlogo_bg_auge.png">' : '<img src="images/xlogo_bg.png">'; 
+                ?>
+            </div>
 
-<body class="<?php echo $modeClass; ?>">
-    <header>
-        <form method="post">
-            <button id="auge-button" type="submit" name="farbwechsel"></button>
-        </form>
-    </header>
+            <h1>Zeiterfassung</h1>
 
-    <form method="post">
-        <button type="submit" name="logout">Logout</button>
-    </form>
+            <!-- Nachricht / Status -->
+            <div id="statusMessage"></div>
 
-    <h1>Zeiterfassung</h1>
+            <!-- Anzeige der Start- und Endzeit -->
+            <div class="time-display">
+                <p>Startzeit: <span id="startzeit"><?php echo $startzeit ? date('d.m.Y H:i:s', strtotime($startzeit)) : '-'; ?></span></p>
+                <!-- <p>Endzeit: <span id="endzeit"><?php echo $endzeit ? date('d.m.Y H:i:s', strtotime($endzeit)) : 'ss-'; ?></span></p> ///// macht das Sinn?? -->
+                <p>Endzeit: <span id="endzeit">-</span></p>
+            </div>
 
-    <!-- Nachricht / Status -->
-    <div id="statusMessage"></div>
+            <!-- Buttons zum Starten und Stoppen der Zeiterfassung -->
+            <button onclick="startZeiterfassung()">Zeiterfassung starten</button>
+            <button onclick="stopZeiterfassung()">Zeiterfassung stoppen</button>
 
-    <!-- Anzeige der Start- und Endzeit -->
-    <div class="time-display">
-        <p>Startzeit: <span id="startzeit"><?php echo $startzeit ? date('d.m.Y H:i:s', strtotime($startzeit)) : '-'; ?></span></p>
-        <p>Endzeit: <span id="endzeit">-</span></p>
-    </div>
+            <h2>Zeiterfassungs-Logs für <?php echo htmlspecialchars($vorname . ' ' . $nachname); ?></h2>
 
-    <!-- Buttons zum Starten und Stoppen der Zeiterfassung -->
-    <button onclick="startZeiterfassung()">Zeiterfassung starten</button>
-    <button onclick="stopZeiterfassung()">Zeiterfassung stoppen</button>
+            <!-- Tabelle zur Anzeige der Zeiterfassungsdaten -->
+            <table>
+                <tr>
+                    <th>Datum</th>
+                    <th>Gesamtzeit</th>
+                </tr>
 
-    <h2>Zeiterfassungs-Logs für <?php echo htmlspecialchars($vorname . ' ' . $nachname); ?></h2>
-
-    <!-- Tabelle zur Anzeige der Zeiterfassungsdaten -->
-    <table>
-        <tr>
-            <th>Datum</th>
-            <th>Gesamtzeit (HH:MM:SS)</th>
-        </tr>
-
-        <?php
-        if (!empty($logs)) {
-            foreach ($logs as $log) {
-                echo "<tr>";
-                echo "<td>" . htmlspecialchars($log['datum']) . "</td>";
-                echo "<td>" . htmlspecialchars($log['gesamtzeit']) . "</td>";
-                echo "</tr>";
-            }
-        } else {
-            echo "<tr><td colspan='2'>Keine Zeiterfassungsdaten verfügbar.</td></tr>";
-        }
-        ?>
-    </table>
-
-    <script>
-        // Funktion zum Starten der Zeiterfassung
-        function startZeiterfassung() {
-            fetch('start_zeiterfassung.php')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('statusMessage').innerText = data;
-
-                    if (data.includes("Zeiterfassung gestartet")) {
-                        // Startzeit setzen, wenn erfolgreich
-                        const currentDateTime = new Date().toLocaleString('de-DE'); // Datum und Uhrzeit im deutschen Format
-                        document.getElementById('startzeit').innerText = currentDateTime;
-                        document.getElementById('endzeit').innerText = "-";
+                <?php
+                if (!empty($logs)) {
+                    foreach ($logs as $log) {
+                        echo "<tr>";
+                        echo "<td>" . htmlspecialchars($log['datum']) . "</td>";
+                        echo "<td>" . htmlspecialchars($log['gesamtzeit']) . "</td>";
+                        echo "</tr>";
                     }
-                });
-        }
+                } else {
+                    echo "<tr><td colspan='2'>Keine Zeiterfassungsdaten verfügbar.</td></tr>";
+                }
+                ?>
+            </table>
 
-        // Funktion zum Stoppen der Zeiterfassung
-        function stopZeiterfassung() {
-            fetch('stop_zeiterfassung.php')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('statusMessage').innerText = data;
+            <script>
+                // Funktion zum Starten der Zeiterfassung
+                function startZeiterfassung() {
+                    fetch('start_zeiterfassung.php')
+                        .then(response => response.text())
+                        .then(data => {
+                            document.getElementById('statusMessage').innerText = data;
 
-                    if (data.includes("Zeiterfassung gestoppt")) {
-                        // Endzeit setzen, wenn erfolgreich
-                        const currentDateTime = new Date().toLocaleString('de-DE'); // Datum und Uhrzeit im deutschen Format
-                        document.getElementById('endzeit').innerText = currentDateTime;
-                    }
-                });
-        }
-    </script>
-    <div class="xlogo">
-        <?php
-            echo $_SESSION['farbenblind_modus'] ? '<img src="images/xlogo_bg_auge.png">' : '<img src="images/xlogo_bg.png">'; 
-        ?>                    
-    </div>
-</body>
+                            if (data.includes("Zeiterfassung gestartet")) {
+                                // Startzeit setzen, wenn erfolgreich
+                                const currentDateTime = new Date().toLocaleString('de-DE'); // Datum und Uhrzeit im deutschen Format
+                                document.getElementById('startzeit').innerText = currentDateTime;
+                                document.getElementById('endzeit').innerText = "-";
+                            }
+                        });
+                }
 
+                // Funktion zum Stoppen der Zeiterfassung
+                function stopZeiterfassung() {
+                    fetch('stop_zeiterfassung.php')
+                        .then(response => response.text())
+                        .then(data => {
+                            document.getElementById('statusMessage').innerText = data;
+
+                            if (data.includes("Zeiterfassung gestoppt")) {
+                                // Endzeit setzen, wenn erfolgreich
+                                const currentDateTime = new Date().toLocaleString('de-DE'); // Datum und Uhrzeit im deutschen Format
+                                document.getElementById('endzeit').innerText = currentDateTime;
+                            }
+                        });
+                }
+            </script>
+        </div>
+    </body>
 </html>

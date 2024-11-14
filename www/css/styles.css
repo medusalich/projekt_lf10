@@ -13,13 +13,16 @@ body {
 }
 
 header {
-    width: 200px;
+    display: flex;
+    align-items: center;
+    width: 600px;
     height: 100px;
     float: right;
 }
 
 header #auge-button {
     margin-top: 20px;
+    margin-left: 30px;
     background-color: transparent;
     background-image: url("../images/auge.png");
     height: 60px;
@@ -29,13 +32,16 @@ header #auge-button {
     cursor: pointer;
 }
 
+header.form {
+    display: inline-block;
+}
+
 .main-content {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
 }
-
 
 main {
     display: flex;
@@ -45,9 +51,19 @@ main {
     height: 100vh;
 }
 
+.dashboard-main {
+    margin-top: 40px;
+    margin-left: 60px;
+}
+
+
 h1 {
     font-size: 40px;
     margin-bottom: 10px;
+}
+
+h2 {
+    margin-top: 30px;
 }
 
 .xform {
@@ -94,6 +110,8 @@ form input {
 button {
     font-weight: bold;
     margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 20px;
     padding: 8px;
     font-size: 18px;
     color: black;
@@ -110,8 +128,8 @@ button:hover {
 }
 
 .xlogo img {
-    width: 500px;
-    height: 500px;
+    width: 300px;
+    height: 300px;
     pointer-events: none;
 }
 
@@ -180,7 +198,7 @@ table form {
 }
 
 table { 
-    width: 100%; 
+    width: 50%; 
     max-width: 1200px; 
     border-collapse: collapse; 
     border: 1px solid black;
@@ -224,4 +242,20 @@ th {
     margin-left: 100px;
     width: 550px;
 
+}
+
+th {
+    height: 36px;
+    background-color: #ccc;
+}
+
+td {
+    height: 36px;
+}
+
+select {
+    font-size: 18px;
+    width: 120px;
+    height: 30px;
+    background-color: ccc;
 }

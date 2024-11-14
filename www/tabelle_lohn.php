@@ -1,7 +1,40 @@
 <?php
-    require "db.php";
-    // Session Start 
+    ini_set("session.gc_maxlifetime", 900);
+    ini_set("session.cookie_lifetime", 900);
     session_start();
+    require "db.php";
+    require "farbenblind_modus.php";
+    
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['farbwechsel'])) {
+        farbwechsel();
+    }
+    $modeClass = farbModus();
+
+    $startzeit = isset($_SESSION['startzeit']) ? $_SESSION['startzeit'] : null;
+    $endzeit = isset($_SESSION['endzeit']) ? $_SESSION['endzeit'] : null; ////////////////////////
+
+    // Wenn nicht eingeloggt wird hier direkt zur Login-Seite gesprungen.
+    if (!isset($_SESSION["isLoggedIn"]) or $_SESSION["isLoggedIn"] == false) {
+        header("Location: login-form.php");
+    }
+
+    // Funktion zum Session-Logout und Session-Destroy.
+    function logout_action()
+    {
+        if (isset($_SESSION["isLoggedIn"])) {
+            if ($_SESSION["isLoggedIn"] == true) {
+                $_SESSION["isLoggedIn"] = false;
+                session_destroy();
+                header("Location: login-form.php");
+            }
+        }
+    }
+
+    // POST Logout-Abfrage.
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['logout'])) {
+        logout_action();
+    }
+
     $MitarbeiterID = $_SESSION['UserID'];
 
     // Aufbau Zeiten nach Jahren und Monaten und Monatsweise aufsummiert
@@ -41,11 +74,11 @@
 <html>
     <head>
         <link rel="stylesheet" href="css/styles.css">
-
-
-
-
-
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lohntabelle X Logistics</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="icon" href="images/favicon.ico" type="image/x-icon">
         <style>
             table, th, td {
                 border-collapse: collapse;
@@ -62,84 +95,101 @@
             }
         </style>
     </head>
-    <body>
-        <!-- Aufbau Tabelle Lohnabrechnung --> 
-        <table>
-            <tr style="height:75px">
-                <th colspan="5", rowspan="1"><?php echo "Lohnabrechnung $month $year" ?></th>
-            </tr>
-            <tr>
-                <th style="width:150px">Name</th>
-                <td style="width:200px"><?php echo $daten_mitarbeiter[0]["Nachname"] ?></td>
-                <th style="width:200px"></th>
-                <th style="width:250px">Geburtsdatum</th>
-                <td style="width:220px"><?php echo $daten_mitarbeiter[0]["Geburtsdatum"] ?></td>
-            </tr>
-            <tr>
-                <th>Vorname</th>
-                <td><?php echo $daten_mitarbeiter[0]["Vorname"] ?></td>
-                <td></td>
-                <th>Anspruch Urlaubstage</th>
-                <td></td>
-            </tr>
-            <tr>
-                <th>Adresse</th>
-                <td><?php echo $daten_mitarbeiter[0]["Straße"] ?></td>
-                <td></td>
-                <th>Urlaub genommen</th>
-                <td></td>
-            </tr>
-            <tr>
-                <th>PLZ, Ort</th>
-                <td><?php echo $daten_mitarbeiter[0]["Postleitzahl"] . ", " . $daten_mitarbeiter[0]["Ort"] ?></td>
-                <td></td>
-                <th>Resturlaub</th>
-                <td></td>
-            </tr>
-            <tr style="height:75px">
-                <td colspan="5"></td>
-            </tr>
-            <tr>
-                <th>Arbeitsstunden</th>
-                <th>Stundenlohn</th>
-                <th colspan="2"></th>
-                <th>Betrag</th>
-            </tr>
-            <tr style="text-align: right;">
-                <!-- NICHT VALIDE tr align="right" -->
-                <td><?php echo number_format($hours, 2, '.', '') ?></td>
-                <td><?php echo number_format($h_rate, 2, '.', '') ." EUR/h" ?></td>
-                <td colspan="2"></td>
-                <td><?php echo number_format($h_rate * $hours,  2, '.', '') . " EUR" ?></td>
-            </tr>
-            <tr style="height:30px">
-                <td colspan="5"></td>
-            </tr>
-            <tr>
-                <th>Steuer Brutto</th>
-                <th>Lohnsteuer</th>
-                <th>RV-Beitrag</th>
-                <th>AV-Beitrag</th>
-                <th>KV-Beitrag</th>
-            </tr>
-            <tr style="text-align: right;">
-                <td><?php echo number_format($h_rate * $hours, 2, '.', '') . "  EUR"?></td>
-                <td><?php echo number_format($h_rate * $hours * $steuersatz, 2, '.', '') . " EUR"?></td>
-                <td><?php echo number_format($h_rate * $hours * 0.08, 2, '.', '') . " EUR"?></td>
-                <td><?php echo number_format($h_rate * $hours * 0.07, 2, '.', '') . " EUR"?></td>
-                <td><?php echo number_format($h_rate * $hours * 0.12, 2, '.', '') . " EUR"?></td>
-            </tr>
-            <tr style="height:30px">
-                <td colspan="5"></td>
-            </tr>
-            <tr>
-                <td colspan="4"></td>
-                <th>Auszahlungsbetrag</th>
-            </tr>
-            <tr style="text-align: right;">
-                <td colspan="4"></td>
-                <td><?php echo number_format($h_rate * $hours * (1 - ($steuersatz+0.08+0.07+0.12)), 2, '.', '') . " EUR" ?></td>
-            </tr>
-        </table>
+    <body class="<?php echo $modeClass; ?>">
+        <header>
+            <button onclick="window.location.href='dashboard.php'">Zeiterfassung</button>
+            <button onclick="window.location.href='lohnabrechnung.php'">Abrechnungen</button>
+            <form method="post">
+                <button type="submit" name="logout">Logout</button>
+            </form>
+            <form method="post">
+                <button id="auge-button" type="submit" name="farbwechsel"></button>
+            </form>
+        </header>
+        <div class="dashboard-main">
+            <div class="xlogo">
+                <?php
+                    echo $_SESSION['farbenblind_modus'] ? '<img src="images/xlogo_bg_auge.png">' : '<img src="images/xlogo_bg.png">'; 
+                ?>
+            </div>
+            <!-- Aufbau Tabelle Lohnabrechnung --> 
+            <table>
+                <tr style="height:75px">
+                    <th colspan="5", rowspan="1"><?php echo "Lohnabrechnung $month $year" ?></th>
+                </tr>
+                <tr>
+                    <th style="width:150px">Name</th>
+                    <td style="width:200px"><?php echo $daten_mitarbeiter[0]["Nachname"] ?></td>
+                    <th style="width:200px"></th>
+                    <th style="width:250px">Geburtsdatum</th>
+                    <td style="width:220px"><?php echo $daten_mitarbeiter[0]["Geburtsdatum"] ?></td>
+                </tr>
+                <tr>
+                    <th>Vorname</th>
+                    <td><?php echo $daten_mitarbeiter[0]["Vorname"] ?></td>
+                    <td></td>
+                    <th>Anspruch Urlaubstage</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Adresse</th>
+                    <td><?php echo $daten_mitarbeiter[0]["Straße"] ?></td>
+                    <td></td>
+                    <th>Urlaub genommen</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>PLZ, Ort</th>
+                    <td><?php echo $daten_mitarbeiter[0]["Postleitzahl"] . ", " . $daten_mitarbeiter[0]["Ort"] ?></td>
+                    <td></td>
+                    <th>Resturlaub</th>
+                    <td></td>
+                </tr>
+                <tr style="height:75px">
+                    <td colspan="5"></td>
+                </tr>
+                <tr>
+                    <th>Arbeitsstunden</th>
+                    <th>Stundenlohn</th>
+                    <th colspan="2"></th>
+                    <th>Betrag</th>
+                </tr>
+                <tr style="text-align: right;">
+                    <!-- NICHT VALIDE tr align="right" -->
+                    <td><?php echo number_format($hours, 2, '.', '') ?></td>
+                    <td><?php echo number_format($h_rate, 2, '.', '') ." EUR/h" ?></td>
+                    <td colspan="2"></td>
+                    <td><?php echo number_format($h_rate * $hours,  2, '.', '') . " EUR" ?></td>
+                </tr>
+                <tr style="height:30px">
+                    <td colspan="5"></td>
+                </tr>
+                <tr>
+                    <th>Steuer Brutto</th>
+                    <th>Lohnsteuer</th>
+                    <th>RV-Beitrag</th>
+                    <th>AV-Beitrag</th>
+                    <th>KV-Beitrag</th>
+                </tr>
+                <tr style="text-align: right;">
+                    <td><?php echo number_format($h_rate * $hours, 2, '.', '') . "  EUR"?></td>
+                    <td><?php echo number_format($h_rate * $hours * $steuersatz, 2, '.', '') . " EUR"?></td>
+                    <td><?php echo number_format($h_rate * $hours * 0.08, 2, '.', '') . " EUR"?></td>
+                    <td><?php echo number_format($h_rate * $hours * 0.07, 2, '.', '') . " EUR"?></td>
+                    <td><?php echo number_format($h_rate * $hours * 0.12, 2, '.', '') . " EUR"?></td>
+                </tr>
+                <tr style="height:30px">
+                    <td colspan="5"></td>
+                </tr>
+                <tr>
+                    <td colspan="4"></td>
+                    <th>Auszahlungsbetrag</th>
+                </tr>
+                <tr style="text-align: right;">
+                    <td colspan="4"></td>
+                    <td><?php echo number_format($h_rate * $hours * (1 - ($steuersatz+0.08+0.07+0.12)), 2, '.', '') . " EUR" ?></td>
+                </tr>
+            </table>
+        </div>
     </body>
 </html>
