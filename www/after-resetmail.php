@@ -13,7 +13,7 @@
             <h1>E-Mail wurde erfolgreich versendet!</h1>
             <p>
                 Bitte prüfe dein E-Mail-Postfach und folge dem Link in der Mail, um das Passwort
-                deines Benutzerkontos zurück zu setzen.
+                deines Benutzerkontos zurück zu setzen.</br>
 
             </p>
             <p>
