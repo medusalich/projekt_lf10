@@ -11,7 +11,6 @@
     $modeClass = farbModus();
 
     $startzeit = isset($_SESSION['startzeit']) ? $_SESSION['startzeit'] : null;
-    $endzeit = isset($_SESSION['endzeit']) ? $_SESSION['endzeit'] : null; ////////////////////////
 
     // Wenn nicht eingeloggt wird hier direkt zur Login-Seite gesprungen.
     if (!isset($_SESSION["isLoggedIn"]) or $_SESSION["isLoggedIn"] == false) {
@@ -86,8 +85,6 @@
                         echo $_SESSION['farbenblind_modus'] ? '<img src="images/xlogo_bg_auge.png">' : '<img src="images/xlogo_bg.png">'; 
                     ?>
             </div>
-            
-
             <h1>Zeiterfassung</h1>
 
             <!-- Nachricht / Status -->
@@ -96,7 +93,6 @@
             <!-- Anzeige der Start- und Endzeit -->
             <div class="time-display">
                 <p>Startzeit: <span id="startzeit"><?php echo $startzeit ? date('d.m.Y H:i:s', strtotime($startzeit)) : '-'; ?></span></p>
-                <!-- <p>Endzeit: <span id="endzeit"><?php echo $endzeit ? date('d.m.Y H:i:s', strtotime($endzeit)) : 'ss-'; ?></span></p> ///// macht das Sinn?? -->
                 <p>Endzeit: <span id="endzeit">-</span></p>
             </div>
 
@@ -126,7 +122,6 @@
                 }
                 ?>
             </table>
-
             <script>
                 // Funktion zum Starten der Zeiterfassung
                 function startZeiterfassung() {
