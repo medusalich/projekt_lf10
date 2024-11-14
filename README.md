@@ -99,15 +99,21 @@ Mitarbeiter sollen in der Lage sein sich auf der Webseite nach der erfolgreichen
 
 ## 2.1.1 Benutzeroberfläche
 
-    Die Benutzeroberfläche ist seitenübergreifend klar und minimalistisch strukturiert, da für die angestrebten Funktionen auf Übersichtlichkeit gesetzt wird.
+    Die Benutzeroberfläche ist seitenübergreifend klar und minimalistisch strukturiert,
+     da für die angestrebten Funktionen auf Übersichtlichkeit gesetzt wird.
 
 (Abbildung Login-Page)
 
-    Die Navigation soll in Bezug auf die tägliche Nutzung vereinfacht und schnell erfolgen können, daher wurde von unnötigen Designelementen abgesehen. Ein einfacher zentrierter Login mit den passenden Userdaten führt zu den getrennten Bereichen für normale Mitarbeiter und Admins. Zusätzlich wurde in der rechten oberen Bildschirmecke eine Funktion eingefügt, welche die Farbgebung der Seite auf einen barrierefreien, weißen Hintergrund setzt.
+     Die Navigation soll in Bezug auf die tägliche Nutzung vereinfacht und schnell erfolgen können,
+    daher wurde von unnötigen Designelementen abgesehen. Ein einfacher zentrierter Login mit den passenden Userdaten
+    führt zu den getrennten Bereichen für normale Mitarbeiter und Admins. Zusätzlich wurde in der rechten oberen Bildschirmecke eine Funktion eingefügt,
+     welche die Farbgebung der Seite auf einen barrierefreien, weißen Hintergrund setzt.
 
 (Abbildung Zeiterfassung)
 
-    Die Zeiterfassung wird über klickbare Buttons gestartet und gestoppt. Dabei wir die erfasste Zeit für jeden Tag summiert und zur Übersicht für den Mitarbeiter dargestellt. Zusätzlich kann der Mitarbeiter seine Gehaltsabrechnungen über einen Button in der rechten oberen Seitenecke erreichen.
+    Die Zeiterfassung wird über klickbare Buttons gestartet und gestoppt.
+    Dabei wir die erfasste Zeit für jeden Tag summiert und zur Übersicht für den Mitarbeiter dargestellt. 
+    Zusätzlich kann der Mitarbeiter seine Gehaltsabrechnungen über einen Button in der rechten oberen Seitenecke erreichen.
 
 (Abbildung Gehaltsabrechnung)
 
@@ -186,7 +192,8 @@ CREATE TABLE Zeiterfassung (
     - Repository klonen: Klone das Projekt auf den Server oder lokalen Entwicklungsrechner:
     - bash/cmd
     - git clone https://github.com/medusalich/projekt_lf10.git
-    - Abhängigkeiten installieren: Stelle sicher, dass alle PHP- und Datenbankabhängigkeiten installiert sind (siehe composer.json, falls Composer verwendet wird).
+    - Abhängigkeiten installieren: Stelle sicher, dass alle PHP- 
+      und Datenbankabhängigkeiten installiert sind (siehe composer.json, falls Composer verwendet wird).
 
 ### Datenbank einrichten
 
