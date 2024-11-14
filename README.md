@@ -45,53 +45,59 @@ Mitarbeiter sollen in der Lage sein sich auf der Webseite nach der erfolgreichen
 
 ### Git & Github
 
-    - Git: Tool um Snapshots von Dateien auf dem lokalen Rechner zu speichern und bei Bedarf zu teilen (https://git-scm.com/downloads)
-    - GitHub: Webseite auf der man seine Dateien für andere zugänglich hochladen und bei Bedarf mergen kann (https://github.com/)
+- Git: Tool um Snapshots von Dateien auf dem lokalen Rechner zu speichern und bei Bedarf zu teilen (https://git-scm.com/downloads)
+- GitHub: Webseite auf der man seine Dateien für andere zugänglich hochladen und bei Bedarf mergen kann (https://github.com/)
 
-#### XAMPP (Apache, MySQL, MariaDB)
+### XAMPP (Apache, MySQL, MariaDB)
 
-    - Apache: Webserver zum hosten unserer erstellten Webseite
-    - MySQL: Datenbankmanagementsystem für relationale Datenbanken
-    - MariaDB: ebenfalls ein Datenbankmanagementsystem für relationale Datenbanken
-    #### HedgeDoc
-    - OpenSource Markdown Editor, webbasiert, selbstgehostet - geeignet für gemeinsames Arbeiten in Echtzeit an Notizen, Graphen, Präsentationen etc. (https://hedgedoc.org/)
-    #### Visual Studio Code
-    - Quelltext Editor für diverse Programmiersprachen um die Codes für unsere Webseite und deren Funktionen zu schreiben (https://code.visualstudio.com/)
-    #### MailHog
-    - erzeugt einen Fake SMTP Server über den lokal Emails verschickt werden können um bspw. Funktionalitäten wie Passwort Resetting zu testen (https://github.com/mailhog/MailHog/releases/tag/v1.0.1)
+- Apache: Webserver zum hosten unserer erstellten Webseite
+- MySQL: Datenbankmanagementsystem für relationale Datenbanken
+- MariaDB: ebenfalls ein Datenbankmanagementsystem für relationale Datenbanken
+
+### HedgeDoc
+
+- OpenSource Markdown Editor, webbasiert, selbstgehostet - geeignet für gemeinsames Arbeiten in Echtzeit an Notizen, Graphen, Präsentationen etc. (https://hedgedoc.org/)
+
+### Visual Studio Code
+
+- Quelltext Editor für diverse Programmiersprachen um die Codes für unsere Webseite und deren Funktionen zu schreiben (https://code.visualstudio.com/)
+
+### MailHog
+
+- erzeugt einen Fake SMTP Server über den lokal Emails verschickt werden können um bspw. Funktionalitäten wie Passwort Resetting zu testen (https://github.com/mailhog/MailHog/releases/tag/v1.0.1)
 
 ## Projektübersicht
 
 ### Projektziel
 
-    Errichtung einer Webseite zur Zeiterfassung für Mitarbeiter. Anforderungen sind die Kontoerstellung, anschließende Login-Funktion, Einsicht der bisherigen Arbeitszeiten-Logs und die Möglichkeit, seine Gehaltsabrechnung im Blick zu haben. Zusätzlich gibt es einen getrennten Bereich für Mitarbeiter und Admins, bei dem Letzere Funktionen zur Mitarbeiterverwaltung verfügbar gemacht werden.
+Errichtung einer Webseite zur Zeiterfassung für Mitarbeiter. Anforderungen sind die Kontoerstellung, anschließende Login-Funktion, Einsicht der bisherigen Arbeitszeiten-Logs und die Möglichkeit, seine Gehaltsabrechnung im Blick zu haben. Zusätzlich gibt es einen getrennten Bereich für Mitarbeiter und Admins, bei dem Letzere Funktionen zur Mitarbeiterverwaltung verfügbar gemacht werden.
 
 ### Teammitglieder
 
-    - Manuel Kilzer (Projektleiter)
-    - Marcel Baumgardt (Co-Leiter)
-    - Stephanie Hartwig
-    - Anastasiia Kolomiiets
-    - Tobias Walter
-    - Willy Kirchhof
+- Manuel Kilzer (Projektleiter)
+- Marcel Baumgardt (Co-Leiter)
+- Stephanie Hartwig
+- Anastasiia Kolomiiets
+- Tobias Walter
+- Willy Kirchhof
 
 ### Zeitplan
 
-    - Projektstart: 06.11.2024
-    - Projektende: 15.11.2024
+- Projektstart: 06.11.2024
+- Projektende: 15.11.2024
 
-    Errichtung des HTML-Grundgerüstes (07.11.2024)
-    Erstellung der SQL-Datenbank (07.11.2024)
-    Funktionalität für Login und Registrierung (08.11.2024)
-    …
+Errichtung des HTML-Grundgerüstes (07.11.2024)
+Erstellung der SQL-Datenbank (07.11.2024)
+Funktionalität für Login und Registrierung (08.11.2024)
+…
 
 ### Verwendete Technologien
 
-    - HTML: Grundaufbau Objektanordnung, Tabellendarstellung, Formulare
-    - PHP: Session-/Datenbankabfragen,
-    - SQL: Datenbankstruktur Backend
-    - CSS: Stylesheet zur Layoutgestaltung
-    - JavaScript: Script für Funktion der Zeiterfassung
+- HTML: Grundaufbau Objektanordnung, Tabellendarstellung, Formulare
+- PHP: Session-/Datenbankabfragen,
+- SQL: Datenbankstruktur Backend
+- CSS: Stylesheet zur Layoutgestaltung
+- JavaScript: Script für Funktion der Zeiterfassung
 
 ## 2. Systemarchitektur
 
@@ -99,21 +105,21 @@ Mitarbeiter sollen in der Lage sein sich auf der Webseite nach der erfolgreichen
 
 ## 2.1.1 Benutzeroberfläche
 
-    Die Benutzeroberfläche ist seitenübergreifend klar und minimalistisch strukturiert,
-     da für die angestrebten Funktionen auf Übersichtlichkeit gesetzt wird.
+Die Benutzeroberfläche ist seitenübergreifend klar und minimalistisch strukturiert,
+da für die angestrebten Funktionen auf Übersichtlichkeit gesetzt wird.
 
 (Abbildung Login-Page)
 
-     Die Navigation soll in Bezug auf die tägliche Nutzung vereinfacht und schnell erfolgen können,
-    daher wurde von unnötigen Designelementen abgesehen. Ein einfacher zentrierter Login mit den passenden Userdaten
-    führt zu den getrennten Bereichen für normale Mitarbeiter und Admins. Zusätzlich wurde in der rechten oberen Bildschirmecke eine Funktion eingefügt,
-     welche die Farbgebung der Seite auf einen barrierefreien, weißen Hintergrund setzt.
+Die Navigation soll in Bezug auf die tägliche Nutzung vereinfacht und schnell erfolgen können,
+daher wurde von unnötigen Designelementen abgesehen. Ein einfacher zentrierter Login mit den passenden Userdaten
+führt zu den getrennten Bereichen für normale Mitarbeiter und Admins. Zusätzlich wurde in der rechten oberen Bildschirmecke eine Funktion eingefügt,
+welche die Farbgebung der Seite auf einen barrierefreien, weißen Hintergrund setzt.
 
 (Abbildung Zeiterfassung)
 
-    Die Zeiterfassung wird über klickbare Buttons gestartet und gestoppt.
-    Dabei wir die erfasste Zeit für jeden Tag summiert und zur Übersicht für den Mitarbeiter dargestellt. 
-    Zusätzlich kann der Mitarbeiter seine Gehaltsabrechnungen über einen Button in der rechten oberen Seitenecke erreichen.
+Die Zeiterfassung wird über klickbare Buttons gestartet und gestoppt.
+Dabei wir die erfasste Zeit für jeden Tag summiert und zur Übersicht für den Mitarbeiter dargestellt. 
+Zusätzlich kann der Mitarbeiter seine Gehaltsabrechnungen über einen Button in der rechten oberen Seitenecke erreichen.
 
 (Abbildung Gehaltsabrechnung)
 
@@ -170,38 +176,37 @@ CREATE TABLE Zeiterfassung (
 
 ### Die wichtigsten Funktionen des Projekts umfassen
 
-    - Benutzerverwaltung: Registrierung, Anmeldung und Profilverwaltung.
-    - Zeiterfassung: Möglichkeit für Benutzer, Arbeitszeiten zu erfassen und zu verwalten.
-    - Berichte und Analysen: Bereitstellung von Statistiken über Arbeitszeiten, Pausen und Überstunden.
-    - Lohnabrechnung: Berechnung von Lohn basierend auf erfassten Arbeitszeiten und festgelegten Stundensätzen.
-    - E-Mail-Benachrichtigungen: Automatische Benachrichtigungen für Benutzer (z. B. Passwort-Reset).
+- Benutzerverwaltung: Registrierung, Anmeldung und Profilverwaltung.
+- Zeiterfassung: Möglichkeit für Benutzer, Arbeitszeiten zu erfassen und zu verwalten.
+- Berichte und Analysen: Bereitstellung von Statistiken über Arbeitszeiten, Pausen und Überstunden.
+- Lohnabrechnung: Berechnung von Lohn basierend auf erfassten Arbeitszeiten und festgelegten Stundensätzen.
+- E-Mail-Benachrichtigungen: Automatische Benachrichtigungen für Benutzer (z. B. Passwort-Reset).
 
 ## 3.3 Sicherheit
 
 ### Sicherheitsmaßnahmen
 
-    - Passwortverschlüsselung: Passwörter werden sicher verschlüsselt gespeichert.
-    - Sichere Authentifizierung: Token-basierte Passwort-Reset-Funktion und zeitlich begrenzte Links.
-    - Session-Management: Automatische Abmeldung bei Inaktivität und sichere Handhabung von Sessions.
-    - Datenbank-Sicherheit: Vorbereitete Statements zur Vermeidung von SQL-Injections.
+- Passwortverschlüsselung: Passwörter werden sicher verschlüsselt gespeichert.
+- Sichere Authentifizierung: Token-basierte Passwort-Reset-Funktion und zeitlich begrenzte Links.
+- Session-Management: Automatische Abmeldung bei Inaktivität und sichere Handhabung von Sessions.
+- Datenbank-Sicherheit: Vorbereitete Statements zur Vermeidung von SQL-Injections.
 
 ## 4. Installation und Deployment
 
 ### Installationsanleitung
 
-    - Repository klonen: Klone das Projekt auf den Server oder lokalen Entwicklungsrechner:
-    - bash/cmd
-    - git clone https://github.com/medusalich/projekt_lf10.git
-    - Abhängigkeiten installieren: Stelle sicher, dass alle PHP- 
-      und Datenbankabhängigkeiten installiert sind (siehe composer.json, falls Composer verwendet wird).
+- Repository klonen: Klone das Projekt auf den Server oder lokalen Entwicklungsrechner:
+- bash/cmd
+- git clone https://github.com/medusalich/projekt_lf10.git
+- Abhängigkeiten installieren: Stelle sicher, dass alle PHP-  und Datenbankabhängigkeiten installiert sind (siehe composer.json, falls Composer verwendet wird).
 
 ### Datenbank einrichten
 
-    - Erstelle eine neue MySQL-Datenbank.
-    - Importiere die mitgelieferte SQL-Datei (z. B. database.sql) in die MySQL-Datenbank.
-    - Konfigurationsdatei bearbeiten: In der Datei config.php (oder .env falls vorhanden) die Datenbankverbindungen und andere Umgebungsvariablen eintragen.
-    - Webserver konfigurieren: Stelle sicher, dass der Webserver für die korrekte Ausführung von PHP-Dateien und Routing konfiguriert ist.
-    - Anwendung starten: Rufe die URL des Projekts im Browser auf, um sicherzustellen, dass die Anwendung ordnungsgemäß ausgeführt wird.
+- Erstelle eine neue MySQL-Datenbank.
+- Importiere die mitgelieferte SQL-Datei (z. B. database.sql) in die MySQL-Datenbank.
+- Konfigurationsdatei bearbeiten: In der Datei config.php (oder .env falls vorhanden) die Datenbankverbindungen und andere Umgebungsvariablen eintragen.
+- Webserver konfigurieren: Stelle sicher, dass der Webserver für die korrekte Ausführung von PHP-Dateien und Routing konfiguriert ist.
+- Anwendung starten: Rufe die URL des Projekts im Browser auf, um sicherzustellen, dass die Anwendung ordnungsgemäß ausgeführt wird.
 
 ## 5 Systemvoraussetzungen
 
