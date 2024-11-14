@@ -11,77 +11,81 @@ Bau einer Webseite, auf der man sich registrieren und einloggen kann. Funktion d
 - Zeiterfassung
 - Suche nach Arbeitszeiten einzelner Mitarbeiter oder Tagen
 
-Projektziel Gruppenarbeit LF10aV2
+## Projektziel Gruppenarbeit LF10aV2
 
 
 Aufbau einer Webseite zur Zeiterfassung für die fiktive Firma “X Logistics”, einem Dienstleistungsunternehmen aus der Logistikbranche.
 Mitarbeiter sollen in der Lage sein sich auf der Webseite nach der erfolgreichen Registrierung und Freischaltung, täglich ein- und ausstempeln zu können und ihre “Stundenzettel” einzusehen. Aus der Zeiterfassung heraus sollen zusätzlich Buchhaltungsrechnungen möglich sein.
 
-Inhaltsverzeichnis
-Projektübersicht
-Projektziel
-Teammitglieder
-Zeitplan
-Verwendete Tools
-Git & GitHub
-XAMPP (Apache, MySQL, MariaDB)
-HedgeDoc, Visual Studio Code, MailHog
-Systemarchitektur
-Frontend
-Benutzeroberfläche
-CSS-Struktur und Design
-Backend
-Implementierungsdetails
-Datenbankstruktur
-Funktionalitäten
-Sicherheitsmaßnahmen
-Installation und Deployment
-Installationsanleitung
-Systemvoraussetzungen
-MailHog-Konfiguration
-Fazit
-Eingesetzte Tools
-Git & Github
-Git: Tool um Snapshots von Dateien auf dem lokalen Rechner zu speichern und bei Bedarf zu teilen (https://git-scm.com/downloads)
+## Inhaltsverzeichnis
+1. Projektübersicht
+- Projektziel
+- Teammitglieder
+- Zeitplan
+2. Verwendete Tools
+- Git & GitHub
+- XAMPP (Apache, MySQL, MariaDB)
+- HedgeDoc, Visual Studio Code, MailHog
+3. Systemarchitektur
+- Frontend
+- Benutzeroberfläche
+- CSS-Struktur und Design
+- Backend
+4. Implementierungsdetails
+- Datenbankstruktur
+- Funktionalitäten
+- Sicherheitsmaßnahmen
+5. Installation und Deployment
+- Installationsanleitung
+- Systemvoraussetzungen
+- MailHog-Konfiguration
+6. Fazit
 
-GitHub: Webseite auf der man seine Dateien für andere zugänglich hochladen und bei Bedarf mergen kann (https://github.com/)
+## Eingesetzte Tools
+#### Git & Github
+- Git: Tool um Snapshots von Dateien auf dem lokalen Rechner zu speichern und bei Bedarf zu teilen (https://git-scm.com/downloads)
 
-XAMPP (Apache, MySQL, MariaDB)
-Apache: Webserver zum hosten unserer erstellten Webseite
-MySQL: Datenbankmanagementsystem für relationale Datenbanken
-MariaDB: ebenfalls ein Datenbankmanagementsystem für relationale Datenbanken
-HedgeDoc
-OpenSource Markdown Editor, webbasiert, selbstgehostet - geeignet für gemeinsames Arbeiten in Echtzeit an Notizen, Graphen, Präsentationen etc. (https://hedgedoc.org/)
-Visual Studio Code
-Quelltext Editor für diverse Programmiersprachen um die Codes für unsere Webseite und deren Funktionen zu schreiben (https://code.visualstudio.com/)
-MailHog
-erzeugt einen Fake SMTP Server über den lokal Emails verschickt werden können um bspw. Funktionalitäten wie Passwort Resetting zu testen (https://github.com/mailhog/MailHog/releases/tag/v1.0.1)
+- GitHub: Webseite auf der man seine Dateien für andere zugänglich hochladen und bei Bedarf mergen kann (https://github.com/)
+
+#### XAMPP (Apache, MySQL, MariaDB)
+- Apache: Webserver zum hosten unserer erstellten Webseite
+- MySQL: Datenbankmanagementsystem für relationale Datenbanken
+- MariaDB: ebenfalls ein Datenbankmanagementsystem für relationale Datenbanken
+#### HedgeDoc
+- OpenSource Markdown Editor, webbasiert, selbstgehostet - geeignet für gemeinsames Arbeiten in Echtzeit an Notizen, Graphen, Präsentationen etc. (https://hedgedoc.org/)
+#### Visual Studio Code
+- Quelltext Editor für diverse Programmiersprachen um die Codes für unsere Webseite und deren Funktionen zu schreiben (https://code.visualstudio.com/)
+#### MailHog
+- erzeugt einen Fake SMTP Server über den lokal Emails verschickt werden können um bspw. Funktionalitäten wie Passwort Resetting zu testen (https://github.com/mailhog/MailHog/releases/tag/v1.0.1)
 
 ## Projektübersicht
-Projektziel:
+#### Projektziel:
 Errichtung einer Webseite zur Zeiterfassung für Mitarbeiter. Anforderungen sind die Kontoerstellung, anschließende Login-Funktion, Einsicht der bisherigen Arbeitszeiten-Logs und die Möglichkeit, seine Gehaltsabrechnung im Blick zu haben. Zusätzlich gibt es einen getrennten Bereich für Mitarbeiter und Admins, bei dem Letzere Funktionen zur Mitarbeiterverwaltung verfügbar gemacht werden.
 
-Teammitglieder
-Manuel Kilzer (Projektleiter)
-Marcel Baumgardt (Co-Leiter)
-Stephanie Hartwig
-Anastasiia Kolomiiets
-Tobias Walter
-Willy Kirchhof
-Zeitplan
-Projektstart: 06.11.2024
-Projektende: 15.11.2024
+#### Teammitglieder
+- Manuel Kilzer (Projektleiter)
+- Marcel Baumgardt (Co-Leiter)
+- Stephanie Hartwig
+- Anastasiia Kolomiiets
+- Tobias Walter
+- Willy Kirchhof
+
+#### Zeitplan
+
+- Projektstart: 06.11.2024
+- Projektende: 15.11.2024
+
 Errichtung des HTML-Grundgerüstes (07.11.2024)
 Erstellung der SQL-Datenbank (07.11.2024)
 Funktionalität für Login und Registrierung (08.11.2024)
 …
 
-Verwendete Technologien
-HTML: Grundaufbau Objektanordnung, Tabellendarstellung, Formulare
-PHP: Session-/Datenbankabfragen,
-SQL: Datenbankstruktur Backend
-CSS: Stylesheet zur Layoutgestaltung
-JavaScript: Script für Funktion der Zeiterfassung
+#### Verwendete Technologien
+- HTML: Grundaufbau Objektanordnung, Tabellendarstellung, Formulare
+- PHP: Session-/Datenbankabfragen,
+- SQL: Datenbankstruktur Backend
+- CSS: Stylesheet zur Layoutgestaltung
+- JavaScript: Script für Funktion der Zeiterfassung
 
 ## 2. Systemarchitektur
 ## 2.1 Frontend
@@ -106,11 +110,12 @@ Die Zeiterfassung wird über klickbare Buttons gestartet und gestoppt. Dabei wir
 
 ![Hier folgen die weiteren Unterseiten sobald fertig]!
 
-## 2.1.2 CSS Struktur und Design
-## 2.2 Backend
+### 2.1.2 CSS Struktur und Design
+### 2.2 Backend
 ## 3. Implementierungsdetails
-3.1 Datenbank
+### 3.1 Datenbank
 Mitarbeiter Tabelle mit zusätzlichen Angaben zu Abteilungen, Einstellungsdatum und Positionen:
+
 CREATE TABLE Userlogin (
     UserID INT PRIMARY KEY AUTO_INCREMENT,
     User VARCHAR(50) NOT NULL,
@@ -130,7 +135,9 @@ CREATE TABLE Mitarbeiter (
     Datum VARCHAR(100),
     FOREIGN KEY (MitarbeiterID) REFERENCES Userlogin(UserID)
 );
+
 Tabelle für die eigentliche Zeiterfassung. Speichert die Einstempel-/Ausstempelzeiten und errechnet automatisch die jeweilige Zeit, die dazwischen vergangen sind:
+
 CREATE TABLE Zeiterfassung (
     id INT AUTO_INCREMENT PRIMARY KEY,
     MitarbeiterID INT NOT NULL,
@@ -140,62 +147,68 @@ CREATE TABLE Zeiterfassung (
     status ENUM('aktiv', 'abgeschlossen') NOT NULL DEFAULT 'aktiv',
     FOREIGN KEY (MitarbeiterID) REFERENCES Mitarbeiter(MitarbeiterID) ON DELETE CASCADE
 );
-# 3.2 Funktionalitäten
-Die wichtigsten Funktionen des Projekts umfassen:
+## 3.2 Funktionalitäten
+#### Die wichtigsten Funktionen des Projekts umfassen:
 
-Benutzerverwaltung: Registrierung, Anmeldung und Profilverwaltung.
-Zeiterfassung: Möglichkeit für Benutzer, Arbeitszeiten zu erfassen und zu verwalten.
-Berichte und Analysen: Bereitstellung von Statistiken über Arbeitszeiten, Pausen und Überstunden.
-Lohnabrechnung: Berechnung von Lohn basierend auf erfassten Arbeitszeiten und festgelegten Stundensätzen.
-E-Mail-Benachrichtigungen: Automatische Benachrichtigungen für Benutzer (z. B. Passwort-Reset).
-3.3 Sicherheit
-Sicherheitsmaßnahmen:
+- Benutzerverwaltung: Registrierung, Anmeldung und Profilverwaltung.
+- Zeiterfassung: Möglichkeit für Benutzer, Arbeitszeiten zu erfassen und zu verwalten.
+- Berichte und Analysen: Bereitstellung von Statistiken über Arbeitszeiten, Pausen und Überstunden.
+- Lohnabrechnung: Berechnung von Lohn basierend auf erfassten Arbeitszeiten und festgelegten Stundensätzen.
+- E-Mail-Benachrichtigungen: Automatische Benachrichtigungen für Benutzer (z. B. Passwort-Reset).
 
-Passwortverschlüsselung: Passwörter werden sicher verschlüsselt gespeichert.
-Sichere Authentifizierung: Token-basierte Passwort-Reset-Funktion und zeitlich begrenzte Links.
-Session-Management: Automatische Abmeldung bei Inaktivität und sichere Handhabung von Sessions.
-Datenbank-Sicherheit: Vorbereitete Statements zur Vermeidung von SQL-Injections.
+## 3.3 Sicherheit
+
+#### Sicherheitsmaßnahmen:
+
+- Passwortverschlüsselung: Passwörter werden sicher verschlüsselt gespeichert.
+- Sichere Authentifizierung: Token-basierte Passwort-Reset-Funktion und zeitlich begrenzte Links.
+- Session-Management: Automatische Abmeldung bei Inaktivität und sichere Handhabung von Sessions.
+- Datenbank-Sicherheit: Vorbereitete Statements zur Vermeidung von SQL-Injections.
+
 ## 4. Installation und Deployment
-Installationsanleitung
 
-Repository klonen: Klone das Projekt auf den Server oder lokalen Entwicklungsrechner:
-bash/cmd
-git clone https://github.com/medusalich/projekt_lf10.git
-Abhängigkeiten installieren: Stelle sicher, dass alle PHP- und Datenbankabhängigkeiten installiert sind (siehe composer.json, falls Composer verwendet wird).
-Datenbank einrichten:
+#### Installationsanleitung
 
-Erstelle eine neue MySQL-Datenbank.
+- Repository klonen: Klone das Projekt auf den Server oder lokalen Entwicklungsrechner:
+- bash/cmd
+- git clone https://github.com/medusalich/projekt_lf10.git
+- Abhängigkeiten installieren: Stelle sicher, dass alle PHP- und Datenbankabhängigkeiten installiert sind (siehe composer.json, falls Composer verwendet wird).
 
-Importiere die mitgelieferte SQL-Datei (z. B. database.sql) in die MySQL-Datenbank.
+#### Datenbank einrichten:
 
-Konfigurationsdatei bearbeiten: In der Datei config.php (oder .env falls vorhanden) die Datenbankverbindungen und andere Umgebungsvariablen eintragen.
+- Erstelle eine neue MySQL-Datenbank.
 
-Webserver konfigurieren: Stelle sicher, dass der Webserver für die korrekte Ausführung von PHP-Dateien und Routing konfiguriert ist.
+- Importiere die mitgelieferte SQL-Datei (z. B. database.sql) in die MySQL-Datenbank.
 
-Anwendung starten: Rufe die URL des Projekts im Browser auf, um sicherzustellen, dass die Anwendung ordnungsgemäß ausgeführt wird.
+- Konfigurationsdatei bearbeiten: In der Datei config.php (oder .env falls vorhanden) die Datenbankverbindungen und andere Umgebungsvariablen eintragen.
+
+- Webserver konfigurieren: Stelle sicher, dass der Webserver für die korrekte Ausführung von PHP-Dateien und Routing konfiguriert ist.
+
+- Anwendung starten: Rufe die URL des Projekts im Browser auf, um sicherzustellen, dass die Anwendung ordnungsgemäß ausgeführt wird.
 
 ## 5 Systemvoraussetzungen
-Serveranforderungen:
+#### Serveranforderungen:
 
-PHP 7.0 oder höher
-MySQL/MariaDB als Datenbank
-Apache oder Nginx Webserver
-Mindestens 1GB RAM und 500MB Speicherplatz (empfohlen)
-Clientanforderungen:
+- PHP 7.0 oder höher
+- MySQL/MariaDB als Datenbank
+- Apache oder Nginx Webserver
+- Mindestens 1GB RAM und 500MB Speicherplatz (empfohlen)
 
-Moderner Webbrowser (Chrome, Firefox, Edge, Safari)
-# 5.1 Mailhog
-Download der aktuellen Version für das eigene System (bspw. Windows) unter (https://github.com/mailhog/MailHog/releases/tag/v1.0.1)!
+#### Clientanforderungen:
 
-Ausführen der heruntergeladenen .EXE Datei
+- Moderner Webbrowser (Chrome, Firefox, Edge, Safari)
 
-Mailhog erstellt unter localhost:1025 einen Fake SMTP Server und unter localhost:8025 ein ansteuerbares Interface zur Einsicht der Mails
+## 5.1 Mailhog
 
+1. Download der aktuellen Version für das eigene System (bspw. Windows) unter (https://github.com/mailhog/MailHog/releases/tag/v1.0.1)!
 
-Anpassung des PHP-Ports für Emailverkehr wird in der jeweiligen Datei auf den Fake Server von Mailhog angepasst
+2. Ausführen der heruntergeladenen .EXE Datei
 
+3. Mailhog erstellt unter localhost:1025 einen Fake SMTP Server und unter localhost:8025 ein ansteuerbares Interface zur Einsicht der Mails
 
-Ist alles richtig eingerichtet erreichen den Server nun Mails vom Support 
+4. Anpassung des PHP-Ports für Emailverkehr wird in der jeweiligen Datei auf den Fake Server von Mailhog angepasst
+
+5. Ist alles richtig eingerichtet erreichen den Server nun Mails vom Support 
 
 ## 6. Fazit
 Das Abschlussprojekt LF10a ermöglichte es, einen Unternehmensprozess digital abzubilden und förderte sowohl technische als auch organisatorische Fähigkeiten. Die Entwicklung einer Webanwendung mit PHP, SQL, HTML und CSS bot praxisnahe Erfahrung in der Teamarbeit, während tägliche Präsentationen und Protokolle die Zusammenarbeit unterstützten. Die Anwendungsdokumentation rundet das Projekt ab und bereiteten die Teilnehmer auf reale Aufgaben in der Webentwicklung vor.
