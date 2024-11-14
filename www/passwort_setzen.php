@@ -24,7 +24,6 @@ $modeClass = farbModus();
     </head>
     <body class="<?php echo $modeClass; ?>">
         <header>
-        <button onclick="window.location.href='login-form.php'">Zurück zum Login</button>
             <form method="post">
                 <button id="auge-button" type="submit" name="farbwechsel"></button>
             </form>
@@ -64,11 +63,11 @@ $modeClass = farbModus();
                         $stmt->bindParam(":reset_token", $token);
                         $stmt->execute();
 
-                        echo "<h1>Passwort erfolgreich zurückgesetzt.</h1>";
+                        echo "Passwort erfolgreich zurückgesetzt.";
                     } else {
-                        echo "<h1>Passwort </br> setzen</h1>";
+                        echo "<h1>Passwort zurücksetzen</h1>";
                         echo "<form method='post'>";
-                        echo "Neues Passwort: <input type='password' name='new_password'></br>";
+                        echo "Neues Passwort: <input type='password' name='new_password'><br><br>";
                         echo "<input type='submit' value='Passwort ändern'>";
                         echo "</form>";
                     }

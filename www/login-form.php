@@ -69,7 +69,7 @@
                                         header("Location: dashboard_admin.php");
                                     } else {
                                         // Random User Logging in.
-                                        header("Location: zeiterfassung.php");
+                                        header("Location: dashboard.php");
                                     }
                                     
                                 } else {
