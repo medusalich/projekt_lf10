@@ -65,16 +65,18 @@
 
 <body class="<?php echo $modeClass; ?>">
     <header>
-        <button onclick="window.location.href='lohnabrechnung.php'">Abrechnungen</button>
-        <button onclick="window.location.href='zeiterfassung.php'">Zeiterfassung</button>
-        <button onclick="window.location.href='zeitanpassung.php'">Zeitanpassung</button>
+        <nav>
+            <button onclick="window.location.href='lohnabrechnung.php'">Abrechnungen</button>
+            <button onclick="window.location.href='zeiterfassung.php'">Zeiterfassung</button>
+            <button onclick="window.location.href='zeitanpassung.php'">Zeitanpassung</button>
 
-        <form method="post">
-            <button type="submit" name="logout">Logout</button>
-        </form>
-        <form method="post">
-            <button id="auge-button" type="submit" name="farbwechsel"></button>
-        </form>
+            <form method="post">
+                <button type="submit" name="logout">Logout</button>
+            </form>
+            <form method="post">
+                <button id="auge-button" type="submit" name="farbwechsel"></button>
+            </form>
+        </nav>
     </header>
 
     <div class="tabelle">

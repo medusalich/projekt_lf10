@@ -32,9 +32,11 @@
     </head>
     <body class="<?php echo $modeClass; ?>">
         <header>
-            <form method="post">
-                <button id="auge-button" type="submit" name="farbwechsel"></button>
-            </form>
+            <nav>
+                <form method="post">
+                    <button id="auge-button" type="submit" name="farbwechsel"></button>
+                </form>
+            </nav>
         </header>
         <div class="main-content">
             <main>
