@@ -145,6 +145,11 @@ if (count($searchResults) > 0) {
                                             <input type="hidden" name="time_id" value="<?php echo $record['id']; ?>">
                                             <button type="submit" name="update_time">Speichern</button>
                                         </td>
+                                        <?php
+
+                                        
+                                        ?>
+
                                     </form>
                                 </tr>
                             <?php endforeach; ?>
@@ -158,3 +163,30 @@ if (count($searchResults) > 0) {
         </main>
     </body>
 </html>
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_time'])) {
+    $id = $_POST['time_id'];
+    $newStart = $_POST['startzeit'];
+    $newEnd = $_POST['endzeit'];
+
+    // Start- und Endzeit in DateTime-Objekte umwandeln
+    $startDateTime = new DateTime($newStart);
+    $endDateTime = new DateTime($newEnd);
+    
+    // Berechnen der Differenz in Sekunden
+    $interval = $startDateTime->diff($endDateTime);
+    $dauerInSekunden = ($interval->days * 24 * 60 * 60) + 
+                       ($interval->h * 60 * 60) + 
+                       ($interval->i * 60) + 
+                       $interval->s;
+
+    // Aktualisieren der Zeiterfassungsdaten und Dauer in Sekunden speichern
+    $updateSql = "UPDATE Zeiterfassung SET startzeit = :startzeit, endzeit = :endzeit, dauer = :dauer WHERE id = :id";
+    $stmt = $pdo->prepare($updateSql);
+    if ($stmt->execute(['startzeit' => $newStart, 'endzeit' => $newEnd, 'dauer' => $dauerInSekunden, 'id' => $id])) {
+        $errorMsg = "Zeiterfassung erfolgreich aktualisiert!";
+    } else {
+        $errorMsg = "Fehler beim Aktualisieren der Zeiterfassung!";
+    }
+}
+?>
