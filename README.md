@@ -153,6 +153,7 @@ CREATE TABLE Mitarbeiter (
     Ort VARCHAR(50) NOT NULL,
     Geburtsdatum DATE NOT NULL,
     Email VARCHAR(100) NOT NULL UNIQUE,
+    reset_token VARCHAR(100),
     Datum VARCHAR(100),
     FOREIGN KEY (MitarbeiterID) REFERENCES Userlogin(UserID)
 );
