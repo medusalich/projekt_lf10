@@ -118,16 +118,16 @@
                 ?>
             </div>
             <!-- Aufbau Tabelle Lohnabrechnung --> 
-            <table>
+            <table style="width:60%">
                 <tr style="height:75px">
-                    <th colspan="5", rowspan="1"><?php echo "Lohnabrechnung $month $year" ?></th>
+                    <th style="text-align:center" colspan="5", rowspan="1"><?php echo "Lohnabrechnung $month $year" ?></th>
                 </tr>
                 <tr>
-                    <th style="width:150px">Name</th>
-                    <td style="width:200px"><?php echo $daten_mitarbeiter[0]["Nachname"] ?></td>
-                    <th style="width:200px"></th>
-                    <th style="width:250px">Geburtsdatum</th>
-                    <td style="width:220px"><?php echo $daten_mitarbeiter[0]["Geburtsdatum"] ?></td>
+                    <th>Name</th>
+                    <td><?php echo $daten_mitarbeiter[0]["Nachname"] ?></td>
+                    <th></th>
+                    <th>Geburtsdatum</th>
+                    <td><?php echo $daten_mitarbeiter[0]["Geburtsdatum"] ?></td>
                 </tr>
                 <tr>
                     <th>Vorname</th>
@@ -226,10 +226,13 @@
                     echo $_SESSION['farbenblind_modus'] ? '<img src="images/xlogo_bg_auge.png">' : '<img src="images/xlogo_bg.png">'; 
                 ?>
             </div>
-        </div>
 
         <p>In diesem Monat gibt es keine Arbeitszeiten. Bitte anderen Zeitraum wählen.</p>
         <button onclick="window.location.href='lohnabrechnung.php'">Zurück</button>
+
+        </div>
+
+        
 
     </body>
 </html>
