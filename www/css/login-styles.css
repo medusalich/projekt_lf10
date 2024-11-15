@@ -35,7 +35,7 @@ nav {
     justify-content: flex-end;
 }
 
-.nav-box button{
+.nav-box button {
     margin-right: 10px;
 }
 
@@ -169,9 +169,9 @@ button:hover {
 }
 
 .farbenblind .warning {
-    background-color: white; 
+    background-color: white;
     color: black;
-    border-color: orange; 
+    border-color: orange;
 }
 
 .farbenblind nav {

@@ -162,7 +162,7 @@ form {
     grid-column-end: 1;
     grid-row-start: 10;
     grid-row-end: 10;
-}          
+}
 
 form label, input {
     display: block;
@@ -247,9 +247,9 @@ button:hover {
 }
 
 .farbenblind .warning {
-    background-color: white; 
+    background-color: white;
     color: black;
-    border-color: orange; 
+    border-color: orange;
 }
 
 .farbenblind nav {
